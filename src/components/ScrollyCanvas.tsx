@@ -3,32 +3,41 @@
 import { useEffect, useRef, useState, ReactNode } from "react";
 import { useScroll, useTransform, useMotionValueEvent, MotionValue } from "framer-motion";
 
-import Overlay from "./Overlay";
+interface ScrollyCanvasProps {
+  sequencePaths?: string[];
+  OverlayComponent?: React.ComponentType<{ progress: MotionValue<number> }>;
+}
 
-const FRAME_COUNT = 120; // 0 to 119
-
-export default function ScrollyCanvas() {
+export default function ScrollyCanvas({ sequencePaths = ["/sequance1"], OverlayComponent }: ScrollyCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   
+  const totalFrames = 120 * sequencePaths.length;
+  // Extra 50vh or 500vh reading time? 500vh is good.
+  const containerHeightVb = sequencePaths.length * 500 + 500; 
+  const animationEndProgress = (sequencePaths.length * 500) / containerHeightVb; // e.g. 1000 / 1500 = 0.666
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
   });
 
-  const frameIndex = useTransform(scrollYProgress, [0, 1], [0, FRAME_COUNT - 1]);
+  // Freeze at the last frame after animationEndProgress
+  const frameIndex = useTransform(scrollYProgress, [0, animationEndProgress], [0, totalFrames - 1]);
 
   useEffect(() => {
     const loadedImages: HTMLImageElement[] = [];
-    for (let i = 0; i < FRAME_COUNT; i++) {
-        const img = new Image();
-        const paddedIndex = String(i).padStart(3, "0");
-        img.src = `/sequance1/frame_${paddedIndex}_delay-0.066s.webp`;
-        loadedImages.push(img);
-    }
+    sequencePaths.forEach((path) => {
+      for (let i = 0; i < 120; i++) {
+          const img = new Image();
+          const paddedIndex = String(i).padStart(3, "0");
+          img.src = `${path}/frame_${paddedIndex}_delay-0.066s.webp`;
+          loadedImages.push(img);
+      }
+    });
     setImages(loadedImages);
-  }, []);
+  }, [JSON.stringify(sequencePaths)]);
 
   const renderFrame = (index: number) => {
     if (!images[index] || !canvasRef.current) return;
@@ -50,7 +59,6 @@ export default function ScrollyCanvas() {
     const centerShift_y = (canvas.height - img.height * ratio) / 2;
     
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // Fill with #121212 background just in case
     ctx.fillStyle = "#121212";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
@@ -87,14 +95,14 @@ export default function ScrollyCanvas() {
   }, [images, frameIndex]);
 
   return (
-    <section ref={containerRef} className="relative h-[500vh] w-full bg-[#121212]">
+    <section ref={containerRef} style={{ height: `${containerHeightVb}vh` }} className="relative w-full bg-[#121212]">
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         <canvas
           ref={canvasRef}
           className="absolute inset-0 z-0 block h-full w-full"
         />
         <div className="absolute inset-0 z-10 pointer-events-none">
-           <Overlay progress={scrollYProgress} />
+           {OverlayComponent && <OverlayComponent progress={scrollYProgress} />}
         </div>
       </div>
     </section>
