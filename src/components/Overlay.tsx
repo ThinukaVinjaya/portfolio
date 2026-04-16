@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, MotionValue, useTransform } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 
 export default function Overlay({ progress }: { progress: MotionValue<number> }) {
   // Section 1: Starts hidden, fades in on scroll, then fades out
@@ -73,26 +72,6 @@ export default function Overlay({ progress }: { progress: MotionValue<number> })
               Beyond coding, I share my knowledge through technical writing and continuously stay updated with emerging technologies to grow as a developer.
             </p>
           </div>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="mt-10 md:mt-12 flex flex-wrap items-center gap-4"
-          >
-            <a href="#articles" className="group flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 bg-transparent transition-all duration-500 hover:bg-white/5 hover:border-white/30">
-              <span className="text-xs md:text-sm font-light tracking-[0.15em] text-neutral-400 uppercase group-hover:text-white transition-colors duration-500">Article</span>
-              <ArrowUpRight className="w-4 h-4 text-neutral-600 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-500" strokeWidth={1} />
-            </a>
-            <a href="#projects" className="group flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 bg-transparent transition-all duration-500 hover:bg-white/5 hover:border-white/30">
-              <span className="text-xs md:text-sm font-light tracking-[0.15em] text-neutral-400 uppercase group-hover:text-white transition-colors duration-500">Project</span>
-              <ArrowUpRight className="w-4 h-4 text-neutral-600 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-500" strokeWidth={1} />
-            </a>
-            <a href="#achievements" className="group flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 bg-transparent transition-all duration-500 hover:bg-white/5 hover:border-white/30">
-              <span className="text-xs md:text-sm font-light tracking-[0.15em] text-neutral-400 uppercase group-hover:text-white transition-colors duration-500">Achievements</span>
-              <ArrowUpRight className="w-4 h-4 text-neutral-600 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-500" strokeWidth={1} />
-            </a>
-          </motion.div>
         </div>
       </motion.div>
     </div>
