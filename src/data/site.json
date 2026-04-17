@@ -1,0 +1,17 @@
+{
+  "personal": {
+    "name": "Thinuka Vinjaya Wickramanayaka",
+    "role1": "Java Full-Stack Developer",
+    "role2": "AI/ML Enthusiast",
+    "about": [
+      "I am Thinuka Vinjayawickramanayaka, an undergraduate pursuing a BSc (Hons) in Computer Science and Technology, and a passionate AI/ML learner, Java developer, and full-stack developer.",
+      "My journey in software development began with a curiosity about how digital systems work, which led me to explore web technologies, backend development, and intelligent systems. Over time, I have gained hands-on experience in building responsive web applications, designing RESTful APIs, and working with full-stack technologies to deliver end-to-end solutions.",
+      "As a Java developer, I enjoy building scalable backend systems using technologies like Spring Boot, focusing on clean architecture, performance, and security. As a full-stack developer, I work across both frontend and backend to create seamless and user-friendly applications.",
+      "I am also actively exploring Artificial Intelligence and Machine Learning to integrate intelligent features into real-world applications and contribute to innovative solutions.",
+      "Beyond coding, I share my knowledge through technical writing and continuously stay updated with emerging technologies to grow as a developer."
+    ]
+  },
+  "footer": {
+    "text": "© 2026 Thinuka Vinjaya Wickramanayaka. All rights reserved."
+  }
+}

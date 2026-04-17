@@ -5,36 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
-// Mock Data for Articles
-const articles = [
-  {
-    id: 1,
-    title: "Mastering Next.js 14 App Router",
-    description: "A comprehensive guide to understanding server components, routing, and data fetching in the new Next.js App Router.",
-    imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2670&auto=format&fit=crop",
-    link: "https://medium.com/",
-    date: "Mars 15, 2026",
-    readTime: "5 min read"
-  },
-  {
-    id: 2,
-    title: "The Future of Full-Stack Java",
-    description: "Exploring Spring Boot 3, GraalVM, and how Java remains one of the most powerful ecosystems for modern web development.",
-    imageUrl: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2670&auto=format&fit=crop",
-    link: "https://medium.com/",
-    date: "Feb 22, 2026",
-    readTime: "7 min read"
-  },
-  {
-    id: 3,
-    title: "Integrating AI Models into Web Apps",
-    description: "How to safely and efficiently integrate machine learning models into your frontend applications using modern APIs.",
-    imageUrl: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2670&auto=format&fit=crop",
-    link: "https://medium.com/",
-    date: "Jan 10, 2026",
-    readTime: "6 min read"
-  }
-];
+import articles from "@/data/articles.json";
 
 export default function ArticlesPage() {
   return (

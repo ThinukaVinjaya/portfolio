@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, FolderDot } from "lucide-react";
 import Link from "next/link";
-import { projects } from "@/data/projects";
+import projects from "@/data/projects.json";
 
 export default function ProjectsPage() {
   return (

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "year": "First Year",
+    "title": "Hackathon Winner - CodeFest 2023",
+    "description": "Won 1st place in the university's annual coding competition. Developed a smart resource tracking system for campus facilities using Python and React.",
+    "imageUrl": "https://images.unsplash.com/photo-1542382122-73145cadd121?q=80&w=2673&auto=format&fit=crop",
+    "icon": "Trophy",
+    "color": "from-blue-500/20 to-cyan-500/20",
+    "tags": ["Hackathon", "Python", "React"]
+  },
+  {
+    "id": 2,
+    "year": "Second Year",
+    "title": "Open Source Contributor",
+    "description": "Successfully merged 10+ PRs into major open-source web frameworks. Recognized as a core contributor to an emerging React ecosystem library.",
+    "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2670&auto=format&fit=crop",
+    "icon": "Target",
+    "color": "from-purple-500/20 to-pink-500/20",
+    "tags": ["Open Source", "JavaScript"]
+  },
+  {
+    "id": 3,
+    "year": "Third Year",
+    "title": "Best AI Innovation Award",
+    "description": "Awarded by the Computer Science department for developing a novel machine learning model that predicts local traffic anomalies with 95% accuracy.",
+    "imageUrl": "https://images.unsplash.com/photo-1485686531765-ba63b07845a7?q=80&w=2664&auto=format&fit=crop",
+    "icon": "Zap",
+    "color": "from-emerald-500/20 to-teal-500/20",
+    "tags": ["Machine Learning", "AI", "Award"]
+  },
+  {
+    "id": 4,
+    "year": "Fourth Year",
+    "title": "Top 50 - National Web Dev Championship",
+    "description": "Placed in the top 50 nationally in a rigorous 48-hour full-stack development championship focused on scalable system design.",
+    "imageUrl": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2670&auto=format&fit=crop",
+    "icon": "Award",
+    "color": "from-amber-500/20 to-orange-500/20",
+    "tags": ["Competition", "Full-Stack"]
+  }
+]

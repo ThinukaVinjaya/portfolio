@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, MotionValue, useTransform } from "framer-motion";
+import siteData from "@/data/site.json";
 
 export default function Overlay({ progress }: { progress: MotionValue<number> }) {
   // Section 1: Starts hidden, fades in on scroll, then fades out
@@ -15,7 +16,7 @@ export default function Overlay({ progress }: { progress: MotionValue<number> })
   const opacity2B = useTransform(progress, [0.13, 0.16, 0.23, 0.26], [0, 1, 1, 0]);
   const y2B = useTransform(progress, [0.13, 0.26], [100, -100]);
 
-  // Section 3: About (Fades in right at the 0.5 mark, which corresponds to the EXACT look-left frame from your screenshot + stays during frozen background scroll)
+  // Section 3: About (Fades in right at the 0.5 mark)
   const opacity3 = useTransform(progress, [0.5, 0.55], [0, 1]);
   const y3 = useTransform(progress, [0.5, 0.55], [100, 0]);
 
@@ -29,7 +30,7 @@ export default function Overlay({ progress }: { progress: MotionValue<number> })
         <div>
           <span className="block text-white/50 text-xl md:text-3xl font-medium tracking-normal mb-3 md:mb-4">Hi I am</span>
           <h1 className="text-5xl md:text-8xl font-bold tracking-tight drop-shadow-2xl">
-            <span className="bg-gradient-to-r from-white via-neutral-200 to-neutral-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]">Thinuka Vinjaya Wickramanayaka</span>
+            <span className="bg-gradient-to-r from-white via-neutral-200 to-neutral-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]">{siteData.personal.name}</span>
           </h1>
         </div>
       </motion.div>
@@ -41,7 +42,7 @@ export default function Overlay({ progress }: { progress: MotionValue<number> })
       >
         <div className="max-w-2xl ml-auto">
           <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-white leading-tight">
-            Java Full-Stack Developer
+            {siteData.personal.role1}
           </h2>
         </div>
       </motion.div>
@@ -53,7 +54,7 @@ export default function Overlay({ progress }: { progress: MotionValue<number> })
       >
         <div className="max-w-2xl -ml-2 md:-ml-8 lg:-ml-12">
           <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-white leading-tight">
-            AI/ML Enthusiast
+            {siteData.personal.role2}
           </h2>
         </div>
       </motion.div>
@@ -68,21 +69,9 @@ export default function Overlay({ progress }: { progress: MotionValue<number> })
             About Me
           </h2>
           <div className="space-y-4 md:space-y-6 text-sm md:text-lg text-neutral-300 font-light leading-relaxed">
-            <p>
-              I am Thinuka Vinjayawickramanayaka, an undergraduate pursuing a BSc (Hons) in Computer Science and Technology, and a passionate AI/ML learner, Java developer, and full-stack developer.
-            </p>
-            <p>
-              My journey in software development began with a curiosity about how digital systems work, which led me to explore web technologies, backend development, and intelligent systems. Over time, I have gained hands-on experience in building responsive web applications, designing RESTful APIs, and working with full-stack technologies to deliver end-to-end solutions.
-            </p>
-            <p>
-              As a Java developer, I enjoy building scalable backend systems using technologies like Spring Boot, focusing on clean architecture, performance, and security. As a full-stack developer, I work across both frontend and backend to create seamless and user-friendly applications.
-            </p>
-            <p>
-              I am also actively exploring Artificial Intelligence and Machine Learning to integrate intelligent features into real-world applications and contribute to innovative solutions.
-            </p>
-            <p>
-              Beyond coding, I share my knowledge through technical writing and continuously stay updated with emerging technologies to grow as a developer.
-            </p>
+            {siteData.personal.about.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
           </div>
         </div>
       </motion.div>

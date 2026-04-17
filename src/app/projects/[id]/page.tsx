@@ -1,4 +1,4 @@
-import { projects } from "@/data/projects";
+import projects from "@/data/projects.json";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink } from "lucide-react";
