@@ -14,7 +14,7 @@
     "year": "First Year",
     "title": "HackMs'25 - Best Performance",
     "description": "I’m thrilled to share that our project AMITY has been officially certified by the Ms Club of Uva Wellassa University 🏆 We built Amity as a centralized Opportunity Hub using Spring Boot and React to help students discover and track events in real-time, solving the issue of scattered information Grateful to my teammates for their teamwork and to the Ms Club for the recognition Special thanks to Random Software Ltd for their support Excited to keep building and innovating 🚀",
-    "imageUrl": "../public/hackms.jpeg",
+    "imageUrl": "/hackms.jpeg",
     "icon": "Trophy",
     "color": "from-blue-500/20 to-cyan-500/20",
     "tags": ["Hackathon", "Full-Stack", "React.js", "Spring Boot","Tailwind CSS"]
