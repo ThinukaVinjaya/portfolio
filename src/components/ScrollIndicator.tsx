@@ -2,8 +2,10 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function ScrollIndicator() {
+  const pathname = usePathname();
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 200], [1, 0]);
   const [isVisible, setIsVisible] = useState(true);
@@ -17,6 +19,8 @@ export default function ScrollIndicator() {
       }
     });
   }, [scrollY]);
+
+  if (pathname !== "/") return null;
 
   return (
     <motion.div
