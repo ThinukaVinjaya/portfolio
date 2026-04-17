@@ -1,29 +1,79 @@
 [
   {
     "id": 1,
-    "title": "Mastering Next.js 14 App Router",
-    "description": "A comprehensive guide to understanding server components, routing, and data fetching in the new Next.js App Router.",
-    "imageUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2670&auto=format&fit=crop",
-    "link": "https://medium.com/",
-    "date": "Mars 15, 2026",
-    "readTime": "5 min read"
+    "title": "Why Use Flutter to Make Mobile Apps?",
+    "description": "In the ever-evolving world of mobile app development, choosing the right framework can make all the difference between a successful app and a lackluster one. Flutter, Google’s open-source UI toolkit, has emerged as a strong contender in this arena, gaining popularity for its seamless cross-platform capabilities and rich development experience. In this article, we’ll explore the compelling reasons why developers are flocking to Flutter for mobile app development and how it can benefit both developers and users alike.",
+    "imageUrl": "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*1O_FnUUxLeJ9BoBIFv6lkw.jpeg",
+    "link": "https://thinukavinjayawickramanayaka.medium.com/why-use-flutter-to-make-mobile-apps-4f579ec809de",
+    "date": "Feb 6, 2025",
+    "readTime": "4 min read"
   },
   {
     "id": 2,
-    "title": "The Future of Full-Stack Java",
-    "description": "Exploring Spring Boot 3, GraalVM, and how Java remains one of the most powerful ecosystems for modern web development.",
-    "imageUrl": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2670&auto=format&fit=crop",
-    "link": "https://medium.com/",
-    "date": "Feb 22, 2026",
-    "readTime": "7 min read"
+    "title": "Why JavaScript Remains Essential in Today's Web Development Landscape",
+    "description": "JavaScript stands out as one of the most prevalent programming languages globally, and its importance is undeniable. Whether you’re an experienced developer or just starting, grasping the significance of JavaScript will enhance your understanding of its vital role in contemporary web development. Let’s delve into why JavaScript remains a fundamental component of the internet and significantly influences the web as we know it.",
+    "imageUrl": "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*SDYQ20DixkZi9OD1x76FVA.jpeg",
+    "link": "https://thinukavinjayawickramanayaka.medium.com/why-javascript-remains-essential-in-todays-web-development-landscape-136353f992db",
+    "date": "Feb 12, 2025",
+    "readTime": "4 min read"
   },
   {
     "id": 3,
-    "title": "Integrating AI Models into Web Apps",
-    "description": "How to safely and efficiently integrate machine learning models into your frontend applications using modern APIs.",
-    "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2670&auto=format&fit=crop",
-    "link": "https://medium.com/",
-    "date": "Jan 10, 2026",
-    "readTime": "6 min read"
+    "title": "Why React.js Is Important in Modern Web Development",
+    "description": "In the current rapid-paced digital landscape, creating interactive and easy-to-navigate web applications is more crucial than ever. React.js, a JavaScript library created by Facebook, has emerged as one of the leading tools for developing dynamic user interfaces. So, what makes React.js a vital choice? Let’s delve into the main reasons why developers and businesses worldwide depend on React.",
+    "imageUrl": "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*jfn6yVvEIkjYog67rFO8HA.jpeg",
+    "link": "https://thinukavinjayawickramanayaka.medium.com/why-react-js-is-important-in-modern-web-development-0cd04df59d9b",
+    "date": "May 1, 2025",
+    "readTime": "2 min read"
+  },
+   {
+    "id": 4,
+    "title": "Completion of the first project | Self-Study",
+    "description": "First of all, I would like to say that I have not yet entered the university. I did this project by self-study. I faced numerous challenges while working on this project.",
+    "imageUrl": "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*bcgNYkN1UaOq-J4GJzWFnQ.jpeg",
+    "link": "https://thinukavinjayawickramanayaka.medium.com/completion-of-the-first-project-self-study-1c08efe6fde4",
+    "date": "Jun 21, 2025",
+    "readTime": "1 min read"
+  }, {
+    "id": 5,
+    "title": "How to Start Full Stack Development",
+    "description": "Full-stack development is at the very center of modern software engineering. Having the capability to create both the front and back end of an application makes full-stack developers incredibly valuable during startups and enterprises.",
+    "imageUrl": "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*j18U6uvAg-ta2XBvDKNQlA.jpeg",
+    "link": "https://thinukavinjayawickramanayaka.medium.com/how-to-start-full-stack-development-1b09472c7eae",
+    "date": "Jul 27, 2025",
+    "readTime": "4 min read"
+  }, {
+    "id": 6,
+    "title": "Spring Boot vs MERN Stack Differences and Advantages",
+    "description": "Choosing the right technology stack is one of the most important decisions in modern software development. Two of the most popular options today are Spring Boot (Java-based backend framework) and the MERN Stack (MongoDB, Express.js, React, Node.js).Both are powerful, but they serve different project needs.",
+    "imageUrl": "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*HyFwffSFBCiVWc4OlnCObQ.jpeg",
+    "link": "https://thinukavinjayawickramanayaka.medium.com/spring-boot-vs-mern-stack-key-differences-and-advantages-30a7563a92d8",
+    "date": "Nov 16, 2025",
+    "readTime": "3 min read"
+  }, {
+    "id": 7,
+    "title": "JavaScript vs TypeScript: An In-Depth Comparison",
+    "description": "JavaScript and TypeScript are two of the most dominant languages in modern web development. While JavaScript is the fundamental language of the web, TypeScript builds upon it to offer improved tooling and structure, especially for large-scale applications. Understanding the core identity and key differences between them is crucial for any developer making technology choices.",
+    "imageUrl": "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*9TX1rxkKGj7LylY-j5U1MQ.jpeg",
+    "link": "https://thinukavinjayawickramanayaka.medium.com/javascript-vs-typescript-an-in-depth-comparison-787e5d5f7f9a",
+    "date": "Nov 18, 2025",
+    "readTime": "3 min read"
+  }, {
+    "id": 8,
+    "title": "REST API vs GraphQL: A Complete Comparison",
+    "description": "Modern web and mobile applications rely heavily on APIs to communicate between the frontend and backend. Two of the most popular approaches are REST (Representational State Transfer) and GraphQL. While both serve the same purpose — data exchange — they differ significantly in design, flexibility, and usage.",
+    "imageUrl": "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*6SCYomgMGdLIaynHYGor-Q.png",
+    "link": "https://thinukavinjayawickramanayaka.medium.com/rest-api-vs-graphql-a-complete-comparison-c0e016b8ae27",
+    "date": "Mar 29, 2026",
+    "readTime": "3 min read"
+  },
+  {
+    "id": 9,
+    "title": "Java Programming",
+    "description": "Java is one of the most influential and widely used programming languages in the modern world. Known for its simplicity, reliability, and portability, Java has become a backbone for developing enterprise applications, Android apps, financial systems, and large-scale distributed platforms. Its strong emphasis on Object-Oriented Programming (OOP) makes it particularly powerful for building scalable and maintainable software.",
+    "imageUrl": "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*F6xlhaUTEsag9XAb_BHHFQ.jpeg",
+    "link": "https://thinukavinjayawickramanayaka.medium.com/java-programming-c7e725b797dc",
+    "date": "Apr 1, 2026",
+    "readTime": "5 min read"
   }
 ]

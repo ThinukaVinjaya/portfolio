@@ -1,35 +1,27 @@
 [
-  {
-    "id": "portfolio-v1",
-    "title": "High-End Scrollytelling Portfolio",
-    "shortDescription": "A modern, high-performance portfolio with complex scroll animations.",
-    "fullDescription": "Built with Next.js, Framer Motion, and HTML5 Canvas, this project demonstrates advanced scroll-linked animations and a dynamic scrollytelling experience. It seamlessly transitions through an image sequence as a background layer, revealing various narrative sections. It leverages Server Components, custom Tailwind configurations, and optimal asset loading techniques to maintain 60FPS animations.",
-    "imageUrl": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2672&auto=format&fit=crop",
-    "techStack": ["Next.js 14", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "HTML5 Canvas"],
-    "githubUrl": "https://github.com/LOQ/portfolio-v1",
-    "liveDemoUrl": "https://my-portfolio-v1.example.com",
-    "year": "2026"
-  },
-  {
-    "id": "ai-finance-dashboard",
-    "title": "AI Finance Dashboard",
-    "shortDescription": "An AI-powered dashboard for real-time financial tracking and predictions.",
-    "fullDescription": "A full-stack application that provides real-time insights into market trends and personal financial health. The backend uses Java and Spring Boot for robust data processing and integrates with Python-based ML models via an API to offer predictive analysis on stock trends. The frontend provides interactive charting and dynamic data updates using WebSockets.",
-    "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop",
-    "techStack": ["Java 21", "Spring Boot", "React", "Python", "TensorFlow", "PostgreSQL", "WebSockets"],
-    "githubUrl": "https://github.com/LOQ/ai-finance-dashboard",
-    "liveDemoUrl": "https://finance-dashboard.example.com",
+ {
+    "id": "OsianViwe-Hotel",
+    "title": "OsianViwe Hotel Management System",
+    "shortDescription": "A scalable backend for an e-commerce platform using microservices architecture.",
+    "fullDescription": "I’m excited to share my full-stack project, OsianView Hotel — a complete hotel booking web application with a dedicated admin dashboard. This project includes user authentication, hotel room booking, service browsing, and booking management on the client side, while the admin panel enables adding and editing rooms as well as managing customer bookings. Through this project, I gained hands-on experience in full-stack development, particularly in building a secure backend, integrating it with a dynamic React frontend, implementing authentication, and managing real-world booking workflows. 🧑‍💻",
+    "imageUrl": "https://media.licdn.com/dms/image/v2/D562DAQHkZHuqIYYMFA/profile-treasury-image-shrink_1280_1280/B56ZscqemnKIAQ-/0/1765712461270?e=1777021200&v=beta&t=QSGD1JK8RHt8uuxa-unkgp6RG7NP6v8fGuJ4EZm2hVQ",
+    "techStack": ["React.js", "Spring Boot", "Spring Secrity", "MySQL"],
+    "githubUrlbackend": "https://github.com/ThinukaVinjaya/OsianViwe-backend.git",
+    "githubUrlfrontend": "https://github.com/ThinukaVinjaya/osianViwe-frontend.git",
+    "liveDemoUrl": "",
     "year": "2025"
   },
   {
-    "id": "e-commerce-microservices",
-    "title": "E-Commerce Microservices",
-    "shortDescription": "A scalable backend for an e-commerce platform using microservices architecture.",
-    "fullDescription": "A robust backend system built entirely on the microservices pattern. It features separate services for User Authentication, Product Catalog, Order Processing, and Payment APIs. It uses Apache Kafka for asynchronous event-driven communication between services. Docker and Kubernetes are used to containerize and orchestrate the highly available infrastructure.",
-    "imageUrl": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2670&auto=format&fit=crop",
-    "techStack": ["Java", "Spring Cloud", "Apache Kafka", "PostgreSQL", "Docker", "Kubernetes", "Redis"],
-    "githubUrl": "https://github.com/LOQ/ecommerce-backend",
+    "id": "Billing-web-application",
+    "title": "Billing web application",
+    "shortDescription": "I’m excited to share my second full-stack test project, a Billing Web Application developed for a real-world retail client. This project helped me gain hands-on experience with AWS, backend APIs, and dynamic frontend development.",
+    "fullDescription": "I’m excited to share my second full-stack test project, a Billing Web Application developed for a real-world retail client. This project features category and product management, image upload and handling using AWS and local file systems, REST APIs built with Spring Boot, and a dynamic user interface developed with React and Bootstrap, including real-time updates along with search and delete functionality. Through this experience, I gained hands-on exposure to AWS, backend API development, and modern frontend practices, while also improving my self-learning skills and deepening my understanding of building scalable, real-world applications and integrating backend systems with cloud-based file handling. 🧑‍💻",
+    "imageUrl": "https://media.licdn.com/dms/image/v2/D562DAQEvqrT08pXyyw/profile-treasury-image-shrink_1280_1280/B56Zsctzf1IEAQ-/0/1765713329187?e=1777021200&v=beta&t=rcNsVoeQybjWpDLHehj-3yfnDkF8Ixd4qDNklSrCc4k",
+    "techStack": ["React.js", "Spring Boot", "JPA", "Bootstrap 5", "Axios", "MySQL", "Maven","AWS"],
+    "githubUrlbackend": "https://github.com/ThinukaVinjaya/billingsoftware-backend.git",
+    "githubUrlfrontend": "https://github.com/ThinukaVinjaya/billingsoftware-frontend.git",
     "liveDemoUrl": "",
-    "year": "2024"
+    "year": "2025"
   }
 ]
+
