@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description: "High-end scrollytelling personal portfolio website.",
 };
 
+import Footer from "@/components/Footer";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -19,8 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} antialiased dark scroll-smooth`}>
-      <body className="min-h-screen bg-background text-foreground bg-[#121212] overflow-x-hidden w-full relative">
-        {children}
+      <body className="min-h-screen bg-background text-foreground bg-[#121212] overflow-x-hidden w-full relative flex flex-col">
+        <div className="flex-grow">
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   );

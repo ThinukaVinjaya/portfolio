@@ -27,9 +27,7 @@ export default function Home() {
 
         <ContactSection />
 
-        <footer className="w-full text-center mt-24 pt-8 border-t border-white/5 text-neutral-500 text-sm relative z-10 max-w-5xl">
-          &copy; 2026 Thinuka Vinjaya Wickramanayaka. All rights reserved.
-        </footer>
+
       </section>
     </main>
   );
