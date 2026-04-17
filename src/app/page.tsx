@@ -1,3 +1,9 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home | Thinuka Vinjaya Wickramanayaka",
+};
+
 import ScrollyCanvas from "@/components/ScrollyCanvas";
 import Overlay from "@/components/Overlay";
 import ActionButtons from "@/components/ActionButtons";

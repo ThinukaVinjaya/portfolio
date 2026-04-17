@@ -8,8 +8,38 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Thinuka Vinjaya Wickramanayaka",
-  description: "personal portfolio website.",
+  title: {
+    default: "Thinuka Vinjaya Wickramanayaka | Full-Stack Developer",
+    template: "%s | Thinuka Vinjaya Wickramanayaka",
+  },
+  description: "Portfolio of Thinuka Vinjaya Wickramanayaka, a passionate Java Full-Stack Developer and AI/ML Enthusiast. Explore my open-source projects, articles, and achievements.",
+  keywords: ["Thinuka Vinjaya Wickramanayaka", "Full-Stack Developer", "Java Developer", "Next.js", "React", "AI/ML Enthusiast", "Portfolio", "Software Engineer"],
+  authors: [{ name: "Thinuka Vinjaya Wickramanayaka" }],
+  creator: "Thinuka Vinjaya Wickramanayaka",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://thinuka.dev", // Using a placeholder domain assuming it's thinuka.dev or similar, can be updated later  
+    title: "Thinuka Vinjaya Wickramanayaka | Full-Stack Developer",
+    description: "Portfolio of Thinuka Vinjaya Wickramanayaka, a passionate Java Full-Stack Developer and AI/ML Enthusiast. Explore my open-source projects, articles, and achievements.",
+    siteName: "Thinuka Vinjaya Wickramanayaka Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Thinuka Vinjaya Wickramanayaka | Full-Stack Developer",
+    description: "Portfolio of Thinuka Vinjaya Wickramanayaka, a passionate Java Full-Stack Developer and AI/ML Enthusiast.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 import Footer from "@/components/Footer";

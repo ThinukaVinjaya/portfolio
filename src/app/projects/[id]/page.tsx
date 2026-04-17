@@ -3,11 +3,43 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
-
+import { Metadata } from "next";
 export function generateStaticParams() {
   return projects.map((project) => ({
     id: project.id,
   }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const project = projects.find((p) => p.id === resolvedParams.id);
+
+  if (!project) {
+    return { title: "Project Not Found" };
+  }
+
+  return {
+    title: `${project.title} | Projects`,
+    description: project.shortDescription,
+    openGraph: {
+      title: `${project.title} | Thinuka Vinjaya Wickramanayaka`,
+      description: project.shortDescription,
+      images: [
+        {
+          url: project.imageUrl,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description: project.shortDescription,
+      images: [project.imageUrl],
+    },
+  };
 }
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ id: string }> }) {
