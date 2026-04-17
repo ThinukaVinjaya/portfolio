@@ -8,11 +8,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Creative Developer | Portfolio",
-  description: "High-end scrollytelling personal portfolio website.",
+  title: "Thinuka Vinjaya Wickramanayaka",
+  description: "personal portfolio website.",
 };
 
 import Footer from "@/components/Footer";
+import CustomCursor from "@/components/CustomCursor";
 
 export default function RootLayout({
   children,
@@ -21,8 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} antialiased dark scroll-smooth`}>
-      <body className="min-h-screen bg-background text-foreground bg-[#121212] overflow-x-hidden w-full relative flex flex-col">
-        <div className="flex-grow">
+      <body className="min-h-screen bg-background text-foreground bg-[#121212] overflow-x-hidden w-full relative flex flex-col cursor-none">
+        <CustomCursor />
+        <div className="flex-grow flex flex-col w-full relative">
           {children}
         </div>
         <Footer />

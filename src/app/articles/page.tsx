@@ -19,8 +19,8 @@ export default function ArticlesPage() {
         </Link>
         
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-16"
         >
@@ -35,8 +35,9 @@ export default function ArticlesPage() {
           {[...articles].reverse().map((article, i) => (
             <motion.div
               key={article.id}
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
               transition={{ duration: 0.8, delay: i * 0.15, ease: "easeOut" }}
             >
               <a

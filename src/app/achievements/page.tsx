@@ -26,9 +26,9 @@ export default function AchievementsPage() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <main className="w-full bg-[#0a0a0a] min-h-screen relative py-20 overflow-hidden font-sans">
+    <main className="w-full bg-[#0a0a0a] min-h-screen relative py-20 overflow-x-hidden font-sans">
       {/* Dynamic Background */}
-      <div className="fixed inset-0 pointer-events-none">
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/5 blur-[120px] rounded-full mix-blend-screen"></div>
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/5 blur-[120px] rounded-full mix-blend-screen"></div>
       </div>
@@ -41,8 +41,8 @@ export default function AchievementsPage() {
         </Link>
         
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-32 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8"
         >
@@ -99,8 +99,8 @@ export default function AchievementsPage() {
 
                   {/* Content Card */}
                   <motion.div
-                    initial={{ opacity: 0, x: isEven ? 50 : -50, y: 20 }}
-                    whileInView={{ opacity: 1, x: 0, y: 0 }}
+                    initial={{ opacity: 0, x: isEven ? 50 : -50, y: 20, filter: "blur(10px)" }}
+                    whileInView={{ opacity: 1, x: 0, y: 0, filter: "blur(0px)" }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className={`w-full md:w-[45%] pl-16 md:pl-0 mt-2 md:mt-0 relative`}
