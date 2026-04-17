@@ -23,41 +23,41 @@ export default function ContactSection() {
     <>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.03)_0%,transparent_60%)] pointer-events-none"></div>
       
-      <div className="max-w-5xl w-full relative z-10">
+      <div className="max-w-5xl w-full relative z-10 px-4 sm:px-6 lg:px-0">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16 md:mb-24"
+          className="text-center mb-12 sm:mb-16 md:mb-24"
         >
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">Let&apos;s Connect</h2>
-          <p className="text-neutral-400 text-lg md:text-xl font-light max-w-2xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-white mb-4 sm:mb-6">Let&apos;s Connect</h2>
+          <p className="text-neutral-400 text-base sm:text-lg md:text-xl font-light max-w-2xl mx-auto px-4 sm:px-0">
             Ready to start your next project or have a question? Drop a message below and let&apos;s make it happen.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 md:gap-24">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <form className="space-y-6">
+            <form className="space-y-4 sm:space-y-6">
               <div className="relative group">
-                <input type="text" id="name" className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4 text-white placeholder-transparent focus:outline-none focus:border-white/30 focus:bg-white/[0.05] transition-all peer" placeholder="Name" required />
-                <label htmlFor="name" className="absolute text-neutral-500 text-sm transition-all bg-[#0a0a0a] px-1 -top-2 left-4 peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-placeholder-shown:left-5 peer-placeholder-shown:bg-transparent peer-focus:-top-2 peer-focus:left-4 peer-focus:bg-[#0a0a0a] peer-focus:text-xs peer-focus:text-white rounded">Name</label>
+                <input type="text" id="name" className="w-full bg-white/[0.02] border border-white/10 rounded-lg sm:rounded-xl px-4 sm:px-5 py-3 sm:py-4 text-white placeholder-transparent focus:outline-none focus:border-white/30 focus:bg-white/[0.05] transition-all peer text-sm sm:text-base" placeholder="Name" required />
+                <label htmlFor="name" className="absolute text-neutral-500 text-xs sm:text-sm transition-all bg-[#0a0a0a] px-1 -top-2 left-3 sm:left-4 peer-placeholder-shown:text-sm sm:peer-placeholder-shown:text-base peer-placeholder-shown:top-3 sm:peer-placeholder-shown:top-4 peer-placeholder-shown:left-4 sm:peer-placeholder-shown:left-5 peer-placeholder-shown:bg-transparent peer-focus:-top-2 peer-focus:left-3 sm:peer-focus:left-4 peer-focus:bg-[#0a0a0a] peer-focus:text-xs peer-focus:text-white rounded">Name</label>
               </div>
               <div className="relative group">
-                <input type="email" id="email" className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4 text-white placeholder-transparent focus:outline-none focus:border-white/30 focus:bg-white/[0.05] transition-all peer" placeholder="Email" required />
-                <label htmlFor="email" className="absolute text-neutral-500 text-sm transition-all bg-[#0a0a0a] px-1 -top-2 left-4 peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-placeholder-shown:left-5 peer-placeholder-shown:bg-transparent peer-focus:-top-2 peer-focus:left-4 peer-focus:bg-[#0a0a0a] peer-focus:text-xs peer-focus:text-white rounded">Email</label>
+                <input type="email" id="email" className="w-full bg-white/[0.02] border border-white/10 rounded-lg sm:rounded-xl px-4 sm:px-5 py-3 sm:py-4 text-white placeholder-transparent focus:outline-none focus:border-white/30 focus:bg-white/[0.05] transition-all peer text-sm sm:text-base" placeholder="Email" required />
+                <label htmlFor="email" className="absolute text-neutral-500 text-xs sm:text-sm transition-all bg-[#0a0a0a] px-1 -top-2 left-3 sm:left-4 peer-placeholder-shown:text-sm sm:peer-placeholder-shown:text-base peer-placeholder-shown:top-3 sm:peer-placeholder-shown:top-4 peer-placeholder-shown:left-4 sm:peer-placeholder-shown:left-5 peer-placeholder-shown:bg-transparent peer-focus:-top-2 peer-focus:left-3 sm:peer-focus:left-4 peer-focus:bg-[#0a0a0a] peer-focus:text-xs peer-focus:text-white rounded">Email</label>
               </div>
               <div className="relative group">
-                <textarea id="message" rows={5} className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-5 py-4 text-white placeholder-transparent focus:outline-none focus:border-white/30 focus:bg-white/[0.05] transition-all resize-none peer" placeholder="Message" required></textarea>
-                <label htmlFor="message" className="absolute text-neutral-500 text-sm transition-all bg-[#0a0a0a] px-1 -top-2 left-4 peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-placeholder-shown:left-5 peer-placeholder-shown:bg-transparent peer-focus:-top-2 peer-focus:left-4 peer-focus:bg-[#0a0a0a] peer-focus:text-xs peer-focus:text-white rounded">Message</label>
+                <textarea id="message" rows={4} className="w-full bg-white/[0.02] border border-white/10 rounded-lg sm:rounded-xl px-4 sm:px-5 py-3 sm:py-4 text-white placeholder-transparent focus:outline-none focus:border-white/30 focus:bg-white/[0.05] transition-all resize-none peer text-sm sm:text-base" placeholder="Message" required></textarea>
+                <label htmlFor="message" className="absolute text-neutral-500 text-xs sm:text-sm transition-all bg-[#0a0a0a] px-1 -top-2 left-3 sm:left-4 peer-placeholder-shown:text-sm sm:peer-placeholder-shown:text-base peer-placeholder-shown:top-3 sm:peer-placeholder-shown:top-4 peer-placeholder-shown:left-4 sm:peer-placeholder-shown:left-5 peer-placeholder-shown:bg-transparent peer-focus:-top-2 peer-focus:left-3 sm:peer-focus:left-4 peer-focus:bg-[#0a0a0a] peer-focus:text-xs peer-focus:text-white rounded">Message</label>
               </div>
-              <button type="submit" className="w-full flex items-center justify-center gap-3 bg-white text-black py-4 rounded-xl font-medium tracking-wide hover:bg-neutral-200 transition-colors focus:ring-4 focus:ring-white/20 active:scale-[0.98]">
+              <button type="submit" className="w-full flex items-center justify-center gap-2 sm:gap-3 bg-white text-black py-3 sm:py-4 rounded-lg sm:rounded-xl font-medium tracking-wide hover:bg-neutral-200 transition-colors focus:ring-4 focus:ring-white/20 active:scale-[0.98] text-sm sm:text-base">
                 Send Message
                 <Send className="w-4 h-4" />
               </button>
@@ -69,14 +69,14 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col justify-center gap-12"
+            className="flex flex-col justify-center gap-8 sm:gap-12"
           >
             <div>
-              <h3 className="text-xl md:text-2xl font-semibold text-white mb-4">Connect With Me</h3>
-              <p className="text-neutral-400 font-light mb-8 max-w-sm">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3 sm:mb-4">Connect With Me</h3>
+              <p className="text-neutral-400 font-light mb-6 sm:mb-8 max-w-sm text-sm sm:text-base">
                 Follow my journey, check out my code, or just see what I&apos;m up to on my social profiles.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
                 {socialLinks.map((link) => {
                   const Icon = link.icon;
                   return (
@@ -85,11 +85,11 @@ export default function ContactSection() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group relative flex items-center justify-center w-14 h-14 rounded-full border border-white/10 bg-white/[0.02] backdrop-blur-md overflow-hidden transition-all duration-500 hover:bg-white/[0.05] hover:border-white/30 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(255,255,255,0.08)]"
+                      className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-white/10 bg-white/[0.02] backdrop-blur-md overflow-hidden transition-all duration-500 hover:bg-white/[0.05] hover:border-white/30 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(255,255,255,0.08)]"
                       aria-label={link.name}
                     >
                       <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/[0.05] to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out"></div>
-                      <Icon className="relative z-10 w-6 h-6 text-neutral-400 group-hover:text-white transition-colors duration-500" strokeWidth={1.5} />
+                      <Icon className="relative z-10 w-5 h-5 sm:w-6 sm:h-6 text-neutral-400 group-hover:text-white transition-colors duration-500" strokeWidth={1.5} />
                     </a>
                   );
                 })}

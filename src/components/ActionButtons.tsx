@@ -30,7 +30,7 @@ export default function ActionButtons() {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-stretch gap-6 md:gap-8 w-full">
+    <div className="flex flex-col sm:flex-row justify-center items-stretch gap-4 sm:gap-6 md:gap-8 w-full max-w-4xl mx-auto">
       {cards.map((card) => (
         <motion.div
           key={card.title}
@@ -38,26 +38,26 @@ export default function ActionButtons() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8, delay: card.delay, ease: "easeOut" }}
-          className="flex-1 min-w-[280px]"
+          className="flex-1 min-w-0 sm:min-w-[240px] md:min-w-[280px]"
         >
           <Link
             href={card.href}
-            className="group relative flex flex-col justify-between p-8 rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-md overflow-hidden transition-all duration-700 hover:bg-white/[0.05] hover:border-white/30 hover:shadow-[0_0_60px_rgba(255,255,255,0.05)] hover:-translate-y-2 h-full w-full block"
+            className="group relative flex flex-col justify-between p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-md overflow-hidden transition-all duration-700 hover:bg-white/[0.05] hover:border-white/30 hover:shadow-[0_0_60px_rgba(255,255,255,0.05)] hover:-translate-y-2 h-full w-full block"
           >
             {/* Animated Gradient Background */}
             <div className="absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-b from-white/10 to-transparent rounded-3xl pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.03] to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out pointer-events-none" />
             
-            <div className="flex justify-between items-start mb-12 relative z-10">
-              <div className="p-3 rounded-2xl bg-white/[0.03] border border-white/10 text-neutral-400 group-hover:text-white group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500">
-                <card.icon className="w-6 h-6 md:w-8 md:h-8" strokeWidth={1.5} />
+            <div className="flex justify-between items-start mb-8 sm:mb-12 relative z-10">
+              <div className="p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-white/[0.03] border border-white/10 text-neutral-400 group-hover:text-white group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500">
+                <card.icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" strokeWidth={1.5} />
               </div>
-              <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 text-neutral-600 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-500" strokeWidth={1.5} />
+              <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-neutral-600 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-500 flex-shrink-0" strokeWidth={1.5} />
             </div>
             
             <div className="relative z-10">
-              <h3 className="text-xl md:text-2xl font-medium tracking-wide text-white mb-2">{card.title}</h3>
-              <p className="text-sm md:text-base text-neutral-400 font-light line-clamp-2 transition-colors duration-500 group-hover:text-neutral-300">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-medium tracking-wide text-white mb-2">{card.title}</h3>
+              <p className="text-sm sm:text-base text-neutral-400 font-light line-clamp-2 transition-colors duration-500 group-hover:text-neutral-300">
                 {card.desc}
               </p>
             </div>
