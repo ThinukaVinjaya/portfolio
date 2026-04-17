@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, ReactNode } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { useScroll, useTransform, useMotionValueEvent, MotionValue } from "framer-motion";
 
 interface ScrollyCanvasProps {
@@ -36,10 +36,11 @@ export default function ScrollyCanvas({ sequencePaths = ["/sequance1"], OverlayC
           loadedImages.push(img);
       }
     });
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setImages(loadedImages);
-  }, [JSON.stringify(sequencePaths)]);
+  }, [sequencePaths]);
 
-  const renderFrame = (index: number) => {
+  const renderFrame = useCallback((index: number) => {
     if (!images[index] || !canvasRef.current) return;
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -67,14 +68,14 @@ export default function ScrollyCanvas({ sequencePaths = ["/sequance1"], OverlayC
         0, 0, img.width, img.height,
         centerShift_x, centerShift_y, img.width * ratio, img.height * ratio
     );
-  };
+  }, [images]);
 
   // Initial render when images load
   useEffect(() => {
     if (images.length > 0 && canvasRef.current) {
         renderFrame(0);
     }
-  }, [images]);
+  }, [images, renderFrame]);
 
   // Render on scroll
   useMotionValueEvent(frameIndex, "change", (latest) => {
@@ -92,7 +93,7 @@ export default function ScrollyCanvas({ sequencePaths = ["/sequance1"], OverlayC
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [images, frameIndex]);
+  }, [images, frameIndex, renderFrame]);
 
   return (
     <section ref={containerRef} style={{ height: `${containerHeightVb}vh` }} className="relative w-full bg-[#121212]">

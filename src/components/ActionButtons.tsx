@@ -31,7 +31,7 @@ export default function ActionButtons() {
 
   return (
     <div className="flex flex-col md:flex-row justify-center items-stretch gap-6 md:gap-8 w-full">
-      {cards.map((card, i) => (
+      {cards.map((card) => (
         <motion.div
           key={card.title}
           initial={{ opacity: 0, y: 40 }}

@@ -2,13 +2,13 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import { Trophy, Award, Target, Zap, ArrowLeft } from "lucide-react";
+import { Trophy, Award, Target, Zap, ArrowLeft, LucideIcon } from "lucide-react";
 import { useRef } from "react";
 
 import achievements from "@/data/achievements.json";
 
 // Map string icon names to Lucide components
-const IconMap: Record<string, any> = {
+const IconMap: Record<string, LucideIcon> = {
   Trophy,
   Target,
   Zap,

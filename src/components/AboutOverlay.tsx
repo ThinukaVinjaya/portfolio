@@ -55,7 +55,7 @@ export default function AboutOverlay({ progress }: { progress: MotionValue<numbe
             Beyond Code
           </h3>
           <p className="text-lg md:text-xl text-neutral-400 font-light leading-relaxed">
-            When I'm not architecting systems, I am deeply invested in the AI/ML landscape, experimenting with neural networks and generative media.
+            When I&apos;m not architecting systems, I am deeply invested in the AI/ML landscape, experimenting with neural networks and generative media.
           </p>
         </div>
       </motion.div>

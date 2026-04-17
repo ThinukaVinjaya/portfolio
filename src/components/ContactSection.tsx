@@ -31,9 +31,9 @@ export default function ContactSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16 md:mb-24"
         >
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">Let's Connect</h2>
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">Let&apos;s Connect</h2>
           <p className="text-neutral-400 text-lg md:text-xl font-light max-w-2xl mx-auto">
-            Ready to start your next project or have a question? Drop a message below and let's make it happen.
+            Ready to start your next project or have a question? Drop a message below and let&apos;s make it happen.
           </p>
         </motion.div>
 
@@ -74,7 +74,7 @@ export default function ContactSection() {
             <div>
               <h3 className="text-xl md:text-2xl font-semibold text-white mb-4">Connect With Me</h3>
               <p className="text-neutral-400 font-light mb-8 max-w-sm">
-                Follow my journey, check out my code, or just see what I'm up to on my social profiles.
+                Follow my journey, check out my code, or just see what I&apos;m up to on my social profiles.
               </p>
               <div className="flex flex-wrap gap-4">
                 {socialLinks.map((link) => {
