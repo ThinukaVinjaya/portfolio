@@ -11,11 +11,11 @@ const HackerRankIcon = ({ className }: { className?: string }) => (
 );
 
 const socialLinks = [
-  { name: "LinkedIn", icon: FaLinkedin, href: "#" },
-  { name: "GitHub", icon: FaGithub, href: "#" },
-  { name: "HackerRank", icon: HackerRankIcon, href: "#" },
-  { name: "Facebook", icon: FaFacebook, href: "#" },
-  { name: "Instagram", icon: FaInstagram, href: "#" },
+  { name: "LinkedIn", icon: FaLinkedin, href: "https://www.linkedin.com/in/thinukavinjayawickramanayaka/" },
+  { name: "GitHub", icon: FaGithub, href: "https://github.com/ThinukaVinjaya" },
+  { name: "HackerRank", icon: HackerRankIcon, href: "https://www.hackerrank.com/profile/thinukavinjayau1" },
+  { name: "Facebook", icon: FaFacebook, href: "https://web.facebook.com/ThinukaVinjayaWickramanayaka/" },
+  { name: "Instagram", icon: FaInstagram, href: "https://www.instagram.com/thinu__ka/" },
 ];
 
 export default function ContactSection() {
