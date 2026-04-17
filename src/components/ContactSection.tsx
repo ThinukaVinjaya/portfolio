@@ -45,7 +45,7 @@ export default function ContactSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <form action="https://api.web3forms.com/submit" method="POST" className="space-y-4 sm:space-y-6">
-              <input type="hidden" name="access_key" value="b8037788-9746-42ec-896a-2741a033977d" />
+              <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY} />
               <div className="relative group">
                 <input type="text" name="name" id="name" className="w-full bg-white/[0.02] border border-white/10 rounded-lg sm:rounded-xl px-4 sm:px-5 py-3 sm:py-4 text-white placeholder-transparent focus:outline-none focus:border-white/30 focus:bg-white/[0.05] transition-all peer text-sm sm:text-base" placeholder="Name" required />
                 <label htmlFor="name" className="absolute text-neutral-500 text-xs sm:text-sm transition-all bg-[#0a0a0a] px-1 -top-2 left-3 sm:left-4 peer-placeholder-shown:text-sm sm:peer-placeholder-shown:text-base peer-placeholder-shown:top-3 sm:peer-placeholder-shown:top-4 peer-placeholder-shown:left-4 sm:peer-placeholder-shown:left-5 peer-placeholder-shown:bg-transparent peer-focus:-top-2 peer-focus:left-3 sm:peer-focus:left-4 peer-focus:bg-[#0a0a0a] peer-focus:text-xs peer-focus:text-white rounded">Name</label>
