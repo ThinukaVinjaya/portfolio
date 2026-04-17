@@ -62,27 +62,15 @@ export default function Overlay({ progress }: { progress: MotionValue<number> })
       {/* Mobile Roles Section - Centered and Stacked */}
       <motion.div
         style={{ opacity: opacity2, y: y2 }}
-        className="absolute inset-0 flex flex-col items-center justify-center text-center w-full px-4 sm:px-6 md:px-12 pointer-events-auto md:hidden"
+        className="absolute inset-0 flex items-end justify-center pb-4 md:pb-8 text-center w-full px-4 sm:px-6 md:px-12 pointer-events-auto md:hidden"
       >
         <div className="flex flex-col items-center space-y-4 sm:space-y-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-white leading-tight break-words">
-              {siteData.personal.role1}
-            </h2>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-white leading-tight break-words">
-              {siteData.personal.role2}
-            </h2>
-          </motion.div>
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-white leading-tight break-words text-shadow-lg">
+            {siteData.personal.role1}
+          </h2>
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-white leading-tight break-words text-shadow-lg">
+            {siteData.personal.role2}
+          </h2>
         </div>
       </motion.div>
 
