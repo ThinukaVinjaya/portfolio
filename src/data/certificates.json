@@ -1,26 +1,42 @@
 [
   {
     "id": "1",
-    "title": "AWS Certified Solutions Architect - Associate",
-    "issuer": "Amazon Web Services",
+    "title": "Spring Boot Rest APLs: Building Modern APIs with Spring Boot",
+    "issuer": "Udemy",
     "date": "2025",
-    "imageUrl": "/cert_placeholder.png",
-    "link": "https://www.linkedin.com/in/thinuka-vinjaya-wickramanayaka"
+    "imageUrl": "https://udemy-certificate.s3.amazonaws.com/image/UC-d81d896b-b41e-42b6-a7dc-933a8093c74d.jpg?v=1750428077000",
+    "link": "https://www.udemy.com/certificate/UC-d81d896b-b41e-42b6-a7dc-933a8093c74d/"
   },
   {
     "id": "2",
-    "title": "Deep Learning Specialization",
-    "issuer": "DeepLearning.AI / Coursera",
-    "date": "2024",
-    "imageUrl": "/cert_placeholder.png",
-    "link": "https://www.linkedin.com/in/thinuka-vinjaya-wickramanayaka"
+    "title": "Spring Boot for Beginners",
+    "issuer": "Amigoscode",
+    "date": "2025",
+    "imageUrl": "/springboot.png",
+    "link": "https://amigoscode.com/certificates/42901c3b-ef8a-42ad-8797-1741722dde18"
   },
   {
     "id": "3",
-    "title": "Full-Stack Web Development Certificate",
-    "issuer": "FreeCodeCamp",
-    "date": "2023",
-    "imageUrl": "/cert_placeholder.png",
-    "link": "https://www.linkedin.com/in/thinuka-vinjaya-wickramanayaka"
+    "title": "Getting Started In Spring Development",
+    "issuer": "LinkedIn",
+    "date": "2025",
+    "imageUrl": "https://media.licdn.com/dms/image/v2/D4D22AQEHYi15QEyyTA/feedshare-shrink_800/B4DZoPLDTuGwAk-/0/1761191146998?e=1776534828&v=beta&t=gtnqDQxxax0ET1uQfpC0-EK0lnuEFh__61xdecK-9VI",
+    "link": "https://www.linkedin.com/learning/certificates/41de1d00dd3c6966673d6d84673bd33001e0500ecfebb8380d7be75e72ce9b2c?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BqBlxAFX7Tqu4eqkaPhNJxQ%3D%3D"
+  },
+  {
+    "id": "4",
+    "title": "Building Your Skills in Spring Development",
+    "issuer": "LinkedIn",
+    "date": "2025",
+    "imageUrl": "https://media.licdn.com/dms/image/v2/D4D22AQE40dGIFtKkcA/feedshare-shrink_800/B4DZn79bRhG8Ag-/0/1760868808018?e=1776534932&v=beta&t=9r17C0tySeNx-tr_w5HF61SOeYi8WWeFHZNkNcj41Ss",
+    "link": "https://www.linkedin.com/learning/certificates/39f6fd470a8dc5439d050309759317140d5f7d92171ae7d90df5178beee0c71a?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BqBlxAFX7Tqu4eqkaPhNJxQ%3D%3D"
+  },
+  {
+    "id": "5",
+    "title": "Explore React.js Development",
+    "issuer": "LinkedIn",
+    "date": "2026",
+    "imageUrl": "https://media.licdn.com/dms/image/v2/D5622AQHIglC05Er4JQ/feedshare-shrink_1280/B56Z19ZvcAGoAM-/0/1775925393465?e=1776536510&v=beta&t=AvB4EJEo3Yw-ScJ0z8bmnnUeB7oZKGTKya9mqllAJzI",
+    "link": "https://www.linkedin.com/learning/certificates/f6428e10c428bee6e16646f75b4d85b0ca61f98bc255aa0e55a6c3d2fd6c02d0?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJGkc8amPTKC4J2qc6ehCEQ%3D%3D"
   }
 ]

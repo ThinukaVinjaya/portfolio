@@ -22,13 +22,15 @@ export default function CertificatesClient() {
     },
   };
 
+  const sortedCertificates = [...certificateData].sort((a, b) => Number(b.id) - Number(a.id));
+
   return (
     <>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 min-h-[80vh]">
 
         {/* Header Section */}
         <div className="mb-16 md:mb-24 flex items-center gap-4">
-          <Link href="/" className="group flex items-center justify-center w-12 h-12 rounded-full bg-white/[0.03] border border-white/10 hover:bg-white/10 transition-all duration-300">
+          <Link href="/" className="group flex items-center justify-center w-12 h-12 rounded-full bg-white/3 border border-white/10 hover:bg-white/10 transition-all duration-300">
             <span className="text-white/50 group-hover:text-white transition-colors duration-300">←</span>
           </Link>
           <div>
@@ -44,15 +46,15 @@ export default function CertificatesClient() {
           animate="visible"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-24"
         >
-          {certificateData.map((cert) => (
+          {sortedCertificates.map((cert) => (
             <motion.div
               key={cert.id}
               variants={itemVariants}
-              className="group relative flex flex-col rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-md overflow-hidden transition-all duration-700 hover:bg-white/[0.04] hover:border-white/20 hover:shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:-translate-y-2"
+              className="group relative flex flex-col rounded-3xl border border-white/10 bg-white/2 backdrop-blur-md overflow-hidden transition-all duration-700 hover:bg-white/4 hover:border-white/20 hover:shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:-translate-y-2"
             >
               {/* Image Container */}
               <div className="relative h-48 sm:h-56 w-full overflow-hidden border-b border-white/10">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 to-transparent z-10"></div>
                 <img
                   src={cert.imageUrl}
                   alt={cert.title}
@@ -97,11 +99,11 @@ export default function CertificatesClient() {
             href="https://www.linkedin.com/in/thinukavinjayawickramanayaka/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full border border-white/20 bg-white/[0.03] backdrop-blur-md overflow-hidden transition-all duration-500 hover:bg-white/[0.08] hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:-translate-y-1"
+            className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full border border-white/20 bg-white/3 backdrop-blur-md overflow-hidden transition-all duration-500 hover:bg-white/8 hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:-translate-y-1"
           >
             <span className="relative z-10 text-white font-medium tracking-wide">See more certificates on LinkedIn</span>
             <ExternalLink className="relative z-10 w-5 h-5 text-neutral-300 group-hover:text-white transition-colors" strokeWidth={1.5} />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.05] to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out"></div>
+            <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></div>
           </a>
         </div>
       </div>
