@@ -6,7 +6,7 @@ export default function SkillsSection() {
   const categories = {
     languages: {
       title: "Languages",
-      skills: ["Java", "TypeScript", "Python", "JavaScript", "SQL", "C"],
+      skills: ["Java", "TypeScript", "Python", "JavaScript", "HTML", "CSS", "SQL", "C"],
     },
     frameworks: {
       title: "Frameworks & Libraries",
