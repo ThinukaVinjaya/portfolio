@@ -10,6 +10,7 @@ import ActionButtons from "@/components/ActionButtons";
 import Header from "@/components/Header";
 import ContactSection from "@/components/ContactSection";
 import ScrollIndicator from "@/components/ScrollIndicator";
+import SkillsSection from "@/components/SkillsSection";
 
 export default function Home() {
   return (
@@ -17,6 +18,8 @@ export default function Home() {
       <Header />
       
       <ScrollyCanvas sequencePaths={["/sequance1", "/sequance2"]} OverlayComponent={Overlay} />
+
+      <SkillsSection />
 
       {/* Unified Discover & Contact Section */}
       <section className="w-full pt-12 pb-6 px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center relative overflow-hidden bg-gradient-to-b from-[#121212] to-[#0a0a0a]">

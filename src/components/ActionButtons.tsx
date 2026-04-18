@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, FolderDot, Trophy, ArrowUpRight } from "lucide-react";
+import { BookOpen, FolderDot, Trophy, ArrowUpRight, Award } from "lucide-react";
 import Link from "next/link";
 
 export default function ActionButtons() {
@@ -26,11 +26,18 @@ export default function ActionButtons() {
       href: "/achievements",
       desc: "Awards, hackathons & milestones",
       delay: 0.4
+    },
+    {
+      title: "Certificates",
+      icon: Award,
+      href: "/certificates",
+      desc: "Professional certifications & courses",
+      delay: 0.6
     }
   ];
 
   return (
-    <div className="flex flex-col sm:flex-row justify-center items-stretch gap-4 sm:gap-6 md:gap-8 w-full max-w-4xl mx-auto">
+    <div className="flex flex-row flex-wrap justify-center items-stretch gap-4 sm:gap-6 md:gap-8 w-full max-w-6xl mx-auto px-4">
       {cards.map((card) => (
         <motion.div
           key={card.title}
@@ -38,7 +45,7 @@ export default function ActionButtons() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8, delay: card.delay, ease: "easeOut" }}
-          className="flex-1 min-w-0 sm:min-w-[240px] md:min-w-[280px]"
+          className="flex-1 min-w-[240px] max-w-[320px] lg:max-w-none"
         >
           <Link
             href={card.href}
