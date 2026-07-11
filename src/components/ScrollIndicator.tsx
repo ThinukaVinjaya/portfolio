@@ -11,13 +11,14 @@ export default function ScrollIndicator() {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    return scrollY.onChange((latest) => {
+    const unsubscribe = scrollY.on("change", (latest: number) => {
       if (latest > 250) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
       }
     });
+    return () => unsubscribe();
   }, [scrollY]);
 
   if (pathname !== "/") return null;

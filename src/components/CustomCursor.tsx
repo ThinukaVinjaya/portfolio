@@ -7,8 +7,17 @@ export default function CustomCursor() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
+    // Check if device has touch and no hover capability
+    if (window.matchMedia("(hover: none)").matches) {
+      setIsTouchDevice(true);
+      return; // hide on touch devices
+    }
+
     const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
       if (!isVisible) setIsVisible(true);
@@ -44,8 +53,8 @@ export default function CustomCursor() {
     };
   }, [isVisible]);
 
-  if (typeof window !== "undefined" && window.matchMedia("(hover: none)").matches) {
-    return null; // hide on touch devices
+  if (!isClient || isTouchDevice) {
+    return null; // hide on touch devices or during hydration
   }
 
   return (
