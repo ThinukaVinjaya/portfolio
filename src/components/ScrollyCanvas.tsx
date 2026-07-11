@@ -46,36 +46,39 @@ export default function ScrollyCanvas({ sequencePaths = ["/sequance1"], OverlayC
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Make canvas display at full window inner size
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
     const img = images[index];
 
-    // object-fit: cover logic mapped to canvas
-    const hRatio = canvas.width / img.width;
-    const vRatio = canvas.height / img.height;
-    const ratio = Math.max(hRatio, vRatio);
-    const centerShift_x = (canvas.width - img.width * ratio) / 2;
-    const centerShift_y = (canvas.height - img.height * ratio) / 2;
-    
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#121212";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
-    ctx.drawImage(
-        img, 
-        0, 0, img.width, img.height,
-        centerShift_x, centerShift_y, img.width * ratio, img.height * ratio
-    );
-  }, [images]);
+    const draw = () => {
+      // object-fit: cover logic mapped to canvas
+      const hRatio = canvas.width / img.width;
+      const vRatio = canvas.height / img.height;
+      const ratio = Math.max(hRatio, vRatio);
+      const centerShift_x = (canvas.width - img.width * ratio) / 2;
+      const centerShift_y = (canvas.height - img.height * ratio) / 2;
+      
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#121212";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      ctx.drawImage(
+          img, 
+          0, 0, img.width, img.height,
+          centerShift_x, centerShift_y, img.width * ratio, img.height * ratio
+      );
+    };
 
-  // Initial render when images load
-  useEffect(() => {
-    if (images.length > 0 && canvasRef.current) {
-        renderFrame(0);
+    if (img.complete && img.naturalWidth !== 0) {
+      draw();
+    } else {
+      // If the image is not yet loaded, avoid clearing the canvas to prevent flashing/blinking.
+      // Instead, set up an onload handler to draw it as soon as it's ready, if still relevant.
+      img.onload = () => {
+        if (Math.floor(frameIndex.get()) === index) {
+          draw();
+        }
+      };
     }
-  }, [images, renderFrame]);
+  }, [images, frameIndex]);
 
   // Render on scroll
   useMotionValueEvent(frameIndex, "change", (latest) => {
@@ -84,13 +87,22 @@ export default function ScrollyCanvas({ sequencePaths = ["/sequance1"], OverlayC
     }
   });
 
-  // Re-render on resize
+  // Handle canvas sizing and initial/resize rendering
   useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
     const handleResize = () => {
-        if (images.length > 0) {
-            renderFrame(Math.floor(frameIndex.get()));
-        }
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      if (images.length > 0) {
+        renderFrame(Math.floor(frameIndex.get()));
+      }
     };
+
+    // Initialize dimensions and draw
+    handleResize();
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [images, frameIndex, renderFrame]);
