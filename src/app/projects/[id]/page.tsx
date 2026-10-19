@@ -62,9 +62,10 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           className="w-full h-full object-cover"
         />
         
-        <div className="absolute top-12 left-6 lg:left-12 z-20">
-          <Link href="/projects" className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 transition-colors">
-            <ArrowLeft className="w-5 h-5" />
+        <div className="absolute top-24 sm:top-28 left-6 lg:left-12 z-20">
+          <Link href="/projects" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 transition-colors text-xs sm:text-sm font-medium">
+            <ArrowLeft className="w-4 h-4" />
+            <span>Back to Projects</span>
           </Link>
         </div>
       </div>

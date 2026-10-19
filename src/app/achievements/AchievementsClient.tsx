@@ -33,7 +33,7 @@ export default function AchievementsClient() {
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-600/5 blur-[120px] rounded-full mix-blend-screen"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8 pt-12 md:pt-24">
+      <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8 pt-16 md:pt-24">
         {/* Navigation */}
         <Link href="/" className="inline-flex items-center text-neutral-400 hover:text-white transition-all mb-10 sm:mb-16 group bg-white/5 px-4 py-2 rounded-full border border-white/10 hover:bg-white/10 backdrop-blur-md">
           <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
@@ -77,7 +77,7 @@ export default function AchievementsClient() {
             className="absolute left-6 md:left-1/2 top-0 w-1 bg-gradient-to-b from-white/80 via-white/40 to-transparent -translate-x-1/2 rounded-full shadow-[0_0_15px_rgba(255,255,255,0.5)]"
           ></motion.div>
 
-          {achievements.map((item, index) => {
+          {[...achievements].reverse().map((item, index) => {
             const isEven = index % 2 === 0;
             const Icon = IconMap[item.icon] || Trophy;
             

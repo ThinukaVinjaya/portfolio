@@ -1,286 +1,374 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { 
+  Sparkles, 
+  Terminal, 
+  Layers, 
+  Cloud, 
+  Database, 
+  Cpu, 
+  CheckCircle2, 
+  ExternalLink 
+} from "lucide-react";
+import { 
+  FaJava, 
+  FaReact, 
+  FaPython, 
+  FaDocker, 
+  FaAws, 
+  FaGitAlt, 
+  FaHtml5, 
+  FaCss3Alt 
+} from "react-icons/fa";
+import { 
+  SiSpringboot, 
+  SiPostgresql, 
+  SiMysql, 
+  SiMongodb, 
+  SiNextdotjs, 
+  SiTailwindcss, 
+  SiTypescript, 
+  SiJavascript, 
+  SiPostman, 
+  SiBootstrap,
+  SiC
+} from "react-icons/si";
+
+type Skill = {
+  name: string;
+  category: "backend" | "frontend" | "cloud" | "db-ai";
+  icon: React.ComponentType<{ className?: string }>;
+  color: string;
+  badge: string;
+  description: string;
+};
+
+const allSkills: Skill[] = [
+  // Backend & Java
+  { 
+    name: "Java", 
+    category: "backend", 
+    icon: FaJava, 
+    color: "#f89820", 
+    badge: "Core Language",
+    description: "OOP, Concurrency, Enterprise Applications" 
+  },
+  { 
+    name: "Spring Boot", 
+    category: "backend", 
+    icon: SiSpringboot, 
+    color: "#6db33f", 
+    badge: "Specialization",
+    description: "RESTful APIs, Microservices, Dependency Injection" 
+  },
+  { 
+    name: "Spring Security", 
+    category: "backend", 
+    icon: SiSpringboot, 
+    color: "#6db33f", 
+    badge: "Security",
+    description: "JWT Authentication, Role-Based Access Control" 
+  },
+  { 
+    name: "Python", 
+    category: "backend", 
+    icon: FaPython, 
+    color: "#3776ab", 
+    badge: "AI / Scripting",
+    description: "Data analysis, machine learning scripts & automation" 
+  },
+  { 
+    name: "C Programming", 
+    category: "backend", 
+    icon: SiC, 
+    color: "#a8b9cc", 
+    badge: "Systems",
+    description: "Low-level memory management & competitive programming" 
+  },
+
+  // Frontend & Full-Stack
+  { 
+    name: "React.js", 
+    category: "frontend", 
+    icon: FaReact, 
+    color: "#61dafb", 
+    badge: "Primary UI",
+    description: "Modern hooks, state management & component architecture" 
+  },
+  { 
+    name: "Next.js", 
+    category: "frontend", 
+    icon: SiNextdotjs, 
+    color: "#ffffff", 
+    badge: "Full-Stack",
+    description: "Server Components, App Router, SSR & performance optimization" 
+  },
+  { 
+    name: "TypeScript", 
+    category: "frontend", 
+    icon: SiTypescript, 
+    color: "#3178c6", 
+    badge: "Type-Safe",
+    description: "Strict typing, robust interfaces & scalable codebases" 
+  },
+  { 
+    name: "JavaScript", 
+    category: "frontend", 
+    icon: SiJavascript, 
+    color: "#f7df1e", 
+    badge: "Modern ES6+",
+    description: "Asynchronous workflows, DOM manipulation & client logic" 
+  },
+  { 
+    name: "Tailwind CSS", 
+    category: "frontend", 
+    icon: SiTailwindcss, 
+    color: "#38bdf8", 
+    badge: "Styling",
+    description: "Utility-first modern design systems & responsive layouts" 
+  },
+  { 
+    name: "Bootstrap 5", 
+    category: "frontend", 
+    icon: SiBootstrap, 
+    color: "#7952b3", 
+    badge: "Framework",
+    description: "Rapid responsive grid & enterprise dashboards" 
+  },
+
+  // Cloud & DevOps
+  { 
+    name: "AWS S3 / Cloud", 
+    category: "cloud", 
+    icon: FaAws, 
+    color: "#ff9900", 
+    badge: "Cloud Storage",
+    description: "Media storage, asset pipelines & cloud infrastructure" 
+  },
+  { 
+    name: "Docker", 
+    category: "cloud", 
+    icon: FaDocker, 
+    color: "#2496ed", 
+    badge: "Containers",
+    description: "Containerization, environment parity & multi-service setups" 
+  },
+  { 
+    name: "Git & GitHub", 
+    category: "cloud", 
+    icon: FaGitAlt, 
+    color: "#f05032", 
+    badge: "VCS",
+    description: "Branching strategies, collaborative workflows & CI/CD basics" 
+  },
+  { 
+    name: "Postman", 
+    category: "cloud", 
+    icon: SiPostman, 
+    color: "#ff6c37", 
+    badge: "Testing",
+    description: "API testing, automated request suites & documentation" 
+  },
+
+  // Databases & AI
+  { 
+    name: "MySQL", 
+    category: "db-ai", 
+    icon: SiMysql, 
+    color: "#4479a1", 
+    badge: "Relational DB",
+    description: "Schema design, relational indexing & complex queries" 
+  },
+  { 
+    name: "PostgreSQL", 
+    category: "db-ai", 
+    icon: SiPostgresql, 
+    color: "#336791", 
+    badge: "Relational DB",
+    description: "ACID compliance, enterprise data integrity & optimization" 
+  },
+  { 
+    name: "MongoDB", 
+    category: "db-ai", 
+    icon: SiMongodb, 
+    color: "#47a248", 
+    badge: "NoSQL",
+    description: "Document stores, dynamic schemas & flexible storage" 
+  },
+];
+
+const categories = [
+  { id: "all", label: "All Technologies" },
+  { id: "backend", label: "Backend & Java" },
+  { id: "frontend", label: "Frontend & Full-Stack" },
+  { id: "cloud", label: "Cloud & DevOps" },
+  { id: "db-ai", label: "Databases & AI" },
+];
 
 export default function SkillsSection() {
-  const categories = {
-    languages: {
-      title: "Languages",
-      skills: ["Java", "TypeScript", "Python", "JavaScript", "HTML", "CSS", "SQL", "C"],
-    },
-    frameworks: {
-      title: "Frameworks & Libraries",
-      skills: ["Spring Boot", "React", "Next.js", "TailwindCSS", "Bootstrap", "Spring"],
-    },
-    cloud: {
-      title: "Cloud & DevOps",
-      skills: ["AWS", "Docker", "Git"],
-    },
-    ai: {
-      title: "AI & Other Tools",
-      skills: ["Postman", "MongoDB", "MySQL", "PostgreSQL"],
-    }
-  };
+  const [activeTab, setActiveTab] = useState<string>("all");
+
+  const filteredSkills = activeTab === "all" 
+    ? allSkills 
+    : allSkills.filter(s => s.category === activeTab);
 
   return (
-    <section className="w-full py-16 md:py-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center relative overflow-hidden bg-transparent font-sans">
-      {/* Subtle white radial glow matching site aesthetic */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-white/[0.02] blur-[120px] rounded-full pointer-events-none"></div>
+    <section id="skills" className="w-full py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#121212]">
+      {/* Background radial glow accents */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-cyan-500/[0.03] blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-1/4 right-10 w-[500px] h-[350px] bg-amber-500/[0.02] blur-[140px] rounded-full pointer-events-none" />
 
-      <div className="w-full max-w-5xl flex flex-col items-center relative z-10">
-
-        {/* Root Node */}
+      <div className="max-w-7xl mx-auto relative z-10">
+        
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
-          className="border border-white/10 bg-white/[0.03] backdrop-blur-md px-10 py-4 shadow-[0_0_30px_rgba(255,255,255,0.05)] rounded-sm z-20 relative"
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="text-white/80 font-semibold tracking-widest text-lg uppercase">My Skills</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-cyan-300 text-xs font-semibold tracking-widest uppercase mb-4 shadow-[0_0_20px_rgba(56,189,248,0.1)]">
+            <Cpu className="w-3.5 h-3.5" />
+            <span>Technical Capabilities</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
+            Engineered for High Performance
+          </h2>
+          
+          <p className="text-neutral-400 text-base sm:text-lg font-light leading-relaxed">
+            From low-level algorithms to enterprise Java backends and reactive client applications, here is the technology stack I deploy to build robust, scalable software.
+          </p>
         </motion.div>
 
-        {/* Top Trunk */}
-        <motion.div
-          initial={{ scaleY: 0 }}
-          whileInView={{ scaleY: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="w-px h-10 bg-white/20 origin-top"
-        ></motion.div>
-
-        {/* Tree Layout Container */}
-        <div className="relative w-full max-w-4xl flex flex-col items-center">
-
-          {/* --- UPPER BRANCHES (Languages & Frameworks) --- */}
-          <div className="relative w-full flex justify-center mb-16 md:mb-24">
-
-            {/* Horizontal Line 1 */}
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="w-[calc(100%-80px)] md:w-[calc(100%-160px)] h-px bg-white/20 absolute top-0"
-            ></motion.div>
-
-            {/* Left Vertical Drop 1 (Languages) */}
-            <motion.div
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 1 }}
-              className="absolute left-[40px] md:left-[80px] top-0 w-px h-12 bg-white/20 origin-top"
-            ></motion.div>
-
-            {/* Right Vertical Drop 1 (Frameworks) */}
-            <motion.div
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 1 }}
-              className="absolute right-[40px] md:right-[80px] top-0 w-px h-12 bg-white/20 origin-top"
-            ></motion.div>
-
-            {/* Continuous Center Trunk (down to next branch) */}
-            <motion.div
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 1 }}
-              className="w-px bg-white/20 origin-top absolute top-0 left-1/2 -translate-x-1/2 hidden md:block"
-              style={{ height: "calc(100% + 4rem)" }}
-            ></motion.div>
-
-            {/* Content Upper */}
-            <div className="w-full flex flex-col md:flex-row justify-between pt-12 relative z-10 gap-16 md:gap-4 px-4 md:px-0">
-              {/* Languages (Left) */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 1.2 }}
-                className="w-full md:w-[45%] flex flex-col items-center md:items-end"
-              >
-                <h3 className="text-white/70 text-sm tracking-widest font-semibold uppercase mb-4">
-                  {categories.languages.title}
-                </h3>
-                <div className="flex flex-wrap gap-3 justify-center md:justify-end content-start">
-                  {categories.languages.skills.map((skill, index) => (
-                    <div
-                      key={index}
-                      className="px-4 py-2 bg-white/[0.02] border border-white/10 rounded text-neutral-300 text-xs md:text-sm tracking-wider font-medium hover:bg-white/10 hover:border-white/30 hover:text-white transition-all backdrop-blur-md"
-                    >
-                      {skill}
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Frameworks (Right) */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 1.2 }}
-                className="w-full md:w-[45%] flex flex-col items-center md:items-start mt-16 md:mt-0"
-              >
-                <h3 className="text-white/70 text-sm tracking-widest font-semibold uppercase mb-4">
-                  {categories.frameworks.title}
-                </h3>
-                <div className="flex flex-wrap gap-3 justify-center md:justify-start content-start">
-                  {categories.frameworks.skills.map((skill, index) => (
-                    <div
-                      key={index}
-                      className="px-4 py-2 bg-white/[0.02] border border-white/10 rounded text-neutral-300 text-xs md:text-sm tracking-wider font-medium hover:bg-white/10 hover:border-white/30 hover:text-white transition-all backdrop-blur-md"
-                    >
-                      {skill}
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
+        {/* 3 Core Architecture Pillars */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="p-6 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-md hover:border-amber-400/30 transition-all duration-300 group"
+          >
+            <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+              <Terminal className="w-6 h-6" />
             </div>
-          </div>
+            <h3 className="text-xl font-bold text-white mb-2">Java & Spring Architecture</h3>
+            <p className="text-neutral-400 text-sm font-light leading-relaxed">
+              Designing layered RESTful microservices, JWT security layers, database pooling, and domain-driven design.
+            </p>
+          </motion.div>
 
-          {/* --- LOWER BRANCHES (Cloud & AI) --- */}
-          <div className="relative w-full flex justify-center hidden md:flex">
-
-            {/* Horizontal Line 2 */}
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 1.4 }}
-              className="w-[calc(100%-240px)] h-px bg-white/20 absolute top-0"
-            ></motion.div>
-
-            {/* Left Vertical Drop 2 (Cloud) */}
-            <motion.div
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 1.8 }}
-              className="absolute left-[120px] top-0 w-px h-12 bg-white/20 origin-top"
-            ></motion.div>
-
-            {/* Right Vertical Drop 2 (AI) */}
-            <motion.div
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 1.8 }}
-              className="absolute right-[120px] top-0 w-px h-12 bg-white/20 origin-top"
-            ></motion.div>
-
-            {/* Lower Center Fade Out Trunk */}
-            <motion.div
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 1.8 }}
-              className="w-px h-32 bg-gradient-to-b from-white/20 to-transparent origin-top absolute top-0 left-1/2 -translate-x-1/2"
-            ></motion.div>
-
-            {/* Content Lower */}
-            <div className="w-full flex flex-col md:flex-row justify-between pt-12 relative z-10 gap-16 md:gap-4 px-4 md:px-0 mb-12">
-              {/* Cloud (Left) */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 2.0 }}
-                className="w-full md:w-[45%] flex flex-col items-center md:items-end pr-0 md:pr-10"
-              >
-                <h3 className="text-white/70 text-sm tracking-widest font-semibold uppercase mb-4">
-                  {categories.cloud.title}
-                </h3>
-                <div className="flex flex-wrap gap-3 justify-center md:justify-end content-start">
-                  {categories.cloud.skills.map((skill, index) => (
-                    <div
-                      key={index}
-                      className="px-4 py-2 bg-white/[0.02] border border-white/10 rounded text-neutral-300 text-xs md:text-sm tracking-wider font-medium hover:bg-white/10 hover:border-white/30 hover:text-white transition-all backdrop-blur-md"
-                    >
-                      {skill}
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* AI & Tools (Right) */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 2.0 }}
-                className="w-full md:w-[45%] flex flex-col items-center md:items-start pl-0 md:pl-10"
-              >
-                <h3 className="text-white/70 text-sm tracking-widest font-semibold uppercase mb-4">
-                  {categories.ai.title}
-                </h3>
-                <div className="flex flex-wrap gap-3 justify-center md:justify-start content-start">
-                  {categories.ai.skills.map((skill, index) => (
-                    <div
-                      key={index}
-                      className="px-4 py-2 bg-white/[0.02] border border-white/10 rounded text-neutral-300 text-xs md:text-sm tracking-wider font-medium hover:bg-white/10 hover:border-white/30 hover:text-white transition-all backdrop-blur-md"
-                    >
-                      {skill}
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="p-6 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-md hover:border-cyan-400/30 transition-all duration-300 group"
+          >
+            <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+              <Layers className="w-6 h-6" />
             </div>
-          </div>
+            <h3 className="text-xl font-bold text-white mb-2">Modern Reactive Web</h3>
+            <p className="text-neutral-400 text-sm font-light leading-relaxed">
+              Crafting fast, responsive UIs using React, Next.js, TypeScript, and fluid animations for high user engagement.
+            </p>
+          </motion.div>
 
-          {/* Mobile Display for Lower Blocks (since tree lines are messy on small screens) */}
-          <div className="w-full flex flex-col md:hidden justify-center relative z-10 gap-16 px-4">
-            {/* Cloud */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="w-full flex flex-col items-center mt-4"
-            >
-              <h3 className="text-white/70 text-sm tracking-widest font-semibold uppercase mb-4">
-                {categories.cloud.title}
-              </h3>
-              <div className="flex flex-wrap gap-3 justify-center content-start">
-                {categories.cloud.skills.map((skill, index) => (
-                  <div
-                    key={index}
-                    className="px-4 py-2 bg-white/[0.02] border border-white/10 rounded text-neutral-300 text-xs md:text-sm tracking-wider font-medium hover:bg-white/10 hover:border-white/30 hover:text-white transition-all backdrop-blur-md"
-                  >
-                    {skill}
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* AI & Tools */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="w-full flex flex-col items-center mt-4"
-            >
-              <h3 className="text-blue-300 text-sm tracking-widest font-semibold uppercase mb-4 opacity-70">
-                {categories.ai.title}
-              </h3>
-              <div className="flex flex-wrap gap-3 justify-center content-start">
-                {categories.ai.skills.map((skill, index) => (
-                  <div
-                    key={index}
-                    className="px-4 py-2 bg-white/[0.02] border border-white/10 rounded text-neutral-300 text-xs md:text-sm tracking-wider font-medium hover:bg-white/10 hover:border-white/30 hover:text-white transition-all backdrop-blur-md"
-                  >
-                    {skill}
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="p-6 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-md hover:border-purple-400/30 transition-all duration-300 group"
+          >
+            <div className="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+              <Database className="w-6 h-6" />
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2">Cloud & Data Systems</h3>
+            <p className="text-neutral-400 text-sm font-light leading-relaxed">
+              Connecting backend applications to AWS S3, relational databases, containerized environments, and AI pipelines.
+            </p>
+          </motion.div>
         </div>
+
+        {/* Category Tabs */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setActiveTab(cat.id)}
+              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
+                activeTab === cat.id
+                  ? "bg-white text-black font-semibold shadow-[0_0_20px_rgba(255,255,255,0.2)] scale-105"
+                  : "bg-white/[0.04] text-neutral-400 hover:text-white hover:bg-white/[0.08] border border-white/10"
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Skills Grid */}
+        <motion.div 
+          layout
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredSkills.map((skill) => {
+              const Icon = skill.icon;
+              return (
+                <motion.div
+                  layout
+                  key={skill.name}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.3 }}
+                  className="group relative p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-md hover:bg-white/[0.05] hover:border-white/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] flex flex-col justify-between"
+                >
+                  {/* Subtle top-corner glow */}
+                  <div 
+                    className="absolute -top-6 -right-6 w-20 h-20 rounded-full blur-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"
+                    style={{ backgroundColor: skill.color }}
+                  />
+
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div 
+                        className="w-12 h-12 rounded-2xl flex items-center justify-center border border-white/10 bg-white/5 transition-transform duration-300 group-hover:scale-110"
+                        style={{ color: skill.color }}
+                      >
+                        <Icon className="w-6 h-6" />
+                      </div>
+                      <span className="text-[10px] sm:text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-white/5 text-neutral-400 border border-white/5">
+                        {skill.badge}
+                      </span>
+                    </div>
+
+                    <h4 className="text-base sm:text-lg font-semibold text-white mb-1.5 group-hover:text-cyan-200 transition-colors">
+                      {skill.name}
+                    </h4>
+
+                    <p className="text-xs text-neutral-400 font-light leading-relaxed">
+                      {skill.description}
+                    </p>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between">
+                    <span className="text-[10px] text-neutral-500 uppercase tracking-widest font-mono">
+                      Verified Skill
+                    </span>
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 opacity-60 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+        </motion.div>
 
       </div>
     </section>

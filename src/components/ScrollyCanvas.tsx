@@ -8,15 +8,20 @@ interface ScrollyCanvasProps {
   OverlayComponent?: React.ComponentType<{ progress: MotionValue<number> }>;
 }
 
-export default function ScrollyCanvas({ sequencePaths = ["/sequance1"], OverlayComponent }: ScrollyCanvasProps) {
+export default function ScrollyCanvas({ 
+  sequencePaths = ["/sequance1", "/sequance2"], 
+  OverlayComponent 
+}: ScrollyCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [images, setImages] = useState<HTMLImageElement[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
   
-  const totalFrames = 120 * sequencePaths.length;
-  // Extra 50vh or 500vh reading time? 500vh is good.
-  const containerHeightVb = sequencePaths.length * 500 + 500; 
-  const animationEndProgress = (sequencePaths.length * 500) / containerHeightVb; // e.g. 1000 / 1500 = 0.666
+  const totalFrames = 120 * sequencePaths.length; // 240 frames
+  // 700vh provides a smooth, cinematic scroll speed that isn't excessively long
+  const containerHeightVh = 700;
+  // Let the 240 frames play across 0% to 75% of scroll, then hold final pose for the About section
+  const animationEndProgress = 0.75; 
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -26,54 +31,82 @@ export default function ScrollyCanvas({ sequencePaths = ["/sequance1"], OverlayC
   // Freeze at the last frame after animationEndProgress
   const frameIndex = useTransform(scrollYProgress, [0, animationEndProgress], [0, totalFrames - 1]);
 
+  // Preload all frames
   useEffect(() => {
+    let active = true;
     const loadedImages: HTMLImageElement[] = [];
+    let loadedCount = 0;
+
     sequencePaths.forEach((path) => {
       for (let i = 0; i < 120; i++) {
-          const img = new Image();
-          const paddedIndex = String(i).padStart(3, "0");
-          img.src = `${path}/frame_${paddedIndex}_delay-0.066s.webp`;
-          loadedImages.push(img);
+        const img = new Image();
+        const paddedIndex = String(i).padStart(3, "0");
+        img.src = `${path}/frame_${paddedIndex}_delay-0.066s.webp`;
+        img.onload = () => {
+          if (!active) return;
+          loadedCount++;
+          // When first 15 frames are ready, set isLoaded to true so user sees immediate render
+          if (loadedCount >= 15) {
+            setIsLoaded(true);
+          }
+        };
+        loadedImages.push(img);
       }
     });
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+
     setImages(loadedImages);
+
+    return () => {
+      active = false;
+    };
   }, [sequencePaths]);
 
   const renderFrame = useCallback((index: number) => {
-    if (!images[index] || !canvasRef.current) return;
+    const clampedIndex = Math.max(0, Math.min(images.length - 1, index));
+    const img = images[clampedIndex];
     const canvas = canvasRef.current;
+    if (!canvas || !img) return;
+
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const img = images[index];
-
     const draw = () => {
-      // object-fit: cover logic mapped to canvas
-      const hRatio = canvas.width / img.width;
-      const vRatio = canvas.height / img.height;
+      const dpr = typeof window !== "undefined" ? Math.min(window.devicePixelRatio || 1, 2) : 1;
+      const displayWidth = canvas.clientWidth;
+      const displayHeight = canvas.clientHeight;
+
+      if (canvas.width !== displayWidth * dpr || canvas.height !== displayHeight * dpr) {
+        canvas.width = displayWidth * dpr;
+        canvas.height = displayHeight * dpr;
+      }
+
+      ctx.save();
+      ctx.scale(dpr, dpr);
+
+      // object-fit: cover math
+      const hRatio = displayWidth / img.width;
+      const vRatio = displayHeight / img.height;
       const ratio = Math.max(hRatio, vRatio);
-      const centerShift_x = (canvas.width - img.width * ratio) / 2;
-      const centerShift_y = (canvas.height - img.height * ratio) / 2;
+      const centerShift_x = (displayWidth - img.width * ratio) / 2;
+      const centerShift_y = (displayHeight - img.height * ratio) / 2;
       
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "#121212";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillRect(0, 0, displayWidth, displayHeight);
       
       ctx.drawImage(
-          img, 
-          0, 0, img.width, img.height,
-          centerShift_x, centerShift_y, img.width * ratio, img.height * ratio
+        img, 
+        0, 0, img.width, img.height,
+        centerShift_x, centerShift_y, img.width * ratio, img.height * ratio
       );
+
+      ctx.restore();
     };
 
     if (img.complete && img.naturalWidth !== 0) {
       draw();
     } else {
-      // If the image is not yet loaded, avoid clearing the canvas to prevent flashing/blinking.
-      // Instead, set up an onload handler to draw it as soon as it's ready, if still relevant.
       img.onload = () => {
-        if (Math.floor(frameIndex.get()) === index) {
+        if (Math.floor(frameIndex.get()) === clampedIndex) {
           draw();
         }
       };
@@ -93,29 +126,47 @@ export default function ScrollyCanvas({ sequencePaths = ["/sequance1"], OverlayC
     if (!canvas) return;
 
     const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
       if (images.length > 0) {
         renderFrame(Math.floor(frameIndex.get()));
       }
     };
 
-    // Initialize dimensions and draw
     handleResize();
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize, { passive: true });
+    return () => window.removeEventListener("resize", handleResize);
   }, [images, frameIndex, renderFrame]);
 
+  // Initial draw once loaded
+  useEffect(() => {
+    if (isLoaded && images.length > 0) {
+      renderFrame(0);
+    }
+  }, [isLoaded, images, renderFrame]);
+
   return (
-    <section ref={containerRef} style={{ height: `${containerHeightVb}vh` }} className="relative w-full bg-[#121212]">
+    <section 
+      ref={containerRef} 
+      style={{ height: `${containerHeightVh}vh` }} 
+      className="relative w-full bg-[#121212]"
+    >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
+        {/* Canvas Display */}
         <canvas
           ref={canvasRef}
           className="absolute inset-0 z-0 block h-full w-full"
         />
+
+        {/* Cinematic Vignette & Ambient Gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-[#121212]/40 pointer-events-none z-[1]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(18,18,18,0.7)_100%)] pointer-events-none z-[1]" />
+        
+        {/* Bottom Smooth Transition to Next Section */}
+        <div className="absolute inset-x-0 bottom-0 h-44 sm:h-64 bg-gradient-to-t from-[#121212] via-[#121212]/90 to-transparent pointer-events-none z-[2]" />
+
+        {/* Narrative Overlay Component */}
         <div className="absolute inset-0 z-10 pointer-events-none">
-           {OverlayComponent && <OverlayComponent progress={scrollYProgress} />}
+          {OverlayComponent && <OverlayComponent progress={scrollYProgress} />}
         </div>
       </div>
     </section>

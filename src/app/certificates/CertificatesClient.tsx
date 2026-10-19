@@ -22,7 +22,8 @@ export default function CertificatesClient() {
     },
   };
 
-  const sortedCertificates = [...certificateData].sort((a, b) => Number(b.id) - Number(a.id));
+  // Ensure last added certificate comes first
+  const sortedCertificates = [...certificateData].reverse();
 
   return (
     <section className="relative overflow-hidden pb-24 bg-background text-white">
@@ -30,7 +31,7 @@ export default function CertificatesClient() {
       <div className="pointer-events-none absolute left-[-10%] top-10 h-120 w-120 rounded-full bg-cyan-400/10 blur-3xl" />
       <div className="pointer-events-none absolute right-[-12%] bottom-8 h-136 w-136 rounded-full bg-purple-500/10 blur-3xl" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-background to-transparent" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20 sm:pt-28 pb-20">
         <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <Link
             href="/"
@@ -68,9 +69,9 @@ export default function CertificatesClient() {
 
             <div className="rounded-4xl border border-white/10 bg-white/5 p-7 shadow-[0_24px_80px_rgba(0,0,0,0.35)] backdrop-blur-md">
               <p className="text-xs uppercase tracking-[0.35em] text-neutral-400">Certificates</p>
-              <p className="mt-4 text-5xl font-semibold text-white">22</p>
+              <p className="mt-4 text-5xl font-semibold text-white">{certificateData.length}</p>
               <p className="mt-2 text-sm leading-6 text-neutral-400">
-                Displaying the most recent credentials first, with direct links to verified authority pages.
+                Displaying verified credentials, with direct links to verified authority certificates.
               </p>
               <div className="mt-6 flex items-center gap-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-3xl bg-cyan-500/10 text-cyan-200">
