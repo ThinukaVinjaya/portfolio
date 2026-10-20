@@ -69,7 +69,7 @@ export default function CertificatesClient() {
 
             <div className="rounded-4xl border border-white/10 bg-white/5 p-7 shadow-[0_24px_80px_rgba(0,0,0,0.35)] backdrop-blur-md">
               <p className="text-xs uppercase tracking-[0.35em] text-neutral-400">Certificates</p>
-              <p className="mt-4 text-5xl font-semibold text-white">{certificateData.length}</p>
+              <p className="mt-4 text-5xl font-semibold text-white">30</p>
               <p className="mt-2 text-sm leading-6 text-neutral-400">
                 Displaying verified credentials, with direct links to verified authority certificates.
               </p>
@@ -143,7 +143,7 @@ export default function CertificatesClient() {
 
         <div className="mt-12 flex justify-center">
           <a
-            href="https://www.linkedin.com/in/thinukavinjayawickramanayaka/"
+            href="https://www.linkedin.com/in/thinukavinjayawickramanayaka/details/certifications/"
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-8 py-4 text-sm font-semibold text-white transition hover:border-cyan-300/30 hover:bg-cyan-400/10"

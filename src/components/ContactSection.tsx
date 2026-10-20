@@ -62,7 +62,7 @@ const socialLinks = [
 export default function ContactSection() {
   const [copied, setCopied] = useState(false);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const emailAddress = "thinukavinjaya@gmail.com";
+  const emailAddress = "thinukavinjayauni@gmail.com";
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(emailAddress);
@@ -112,7 +112,7 @@ export default function ContactSection() {
             Let&apos;s Build Something Great Together
           </h2>
           <p className="text-neutral-400 text-base sm:text-lg font-light max-w-2xl mx-auto leading-relaxed">
-            Have a project in mind, seeking a Java / Full-Stack engineer, or want to discuss AI integration? My inbox is always open.
+            Have a project in mind, seeking a Java , Full-Stack engineer, or want to discuss AI integration? My inbox is always open.
           </p>
         </motion.div>
 

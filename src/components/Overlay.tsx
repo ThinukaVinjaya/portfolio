@@ -53,7 +53,7 @@ export default function Overlay({ progress }: { progress: MotionValue<number> })
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.05] border border-white/10 backdrop-blur-md mb-6 shadow-[0_0_30px_rgba(255,255,255,0.05)]">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-xs sm:text-sm font-medium text-neutral-300 tracking-wide">
-              Full-Stack Developer & AI/ML Specialist
+              Full-Stack Developer & AI/ML Enthusiast 
             </span>
           </div>
 
@@ -69,7 +69,7 @@ export default function Overlay({ progress }: { progress: MotionValue<number> })
           </h1>
 
           <p className="max-w-2xl text-sm sm:text-base md:text-xl text-neutral-300 font-light leading-relaxed mb-8">
-            Crafting scalable enterprise systems with <span className="text-white font-medium">Java & Spring Boot</span> and building intelligent, fluid web experiences with <span className="text-white font-medium">Next.js & AI</span>.
+            Crafting scalable enterprise systems with <span className="text-white font-medium">Full Stack Development</span> and building intelligent, fluid web experiences with <span className="text-white font-medium">AI Integration</span>.
           </p>
 
           {/* Quick CTA Chips */}
@@ -128,11 +128,11 @@ export default function Overlay({ progress }: { progress: MotionValue<number> })
               {siteData.personal.role1}
             </h2>
             <p className="text-neutral-400 text-sm sm:text-base font-light leading-relaxed mb-6">
-              Specialized in scalable server-side systems, microservices architecture, secure RESTful APIs with Spring Boot, JPA, MySQL, and cloud deployments.
+              Specialized in scalable server-side systems, microservices architecture, secure RESTful APIs with Spring Boot, MERN Stack,JPA, MySQL, and cloud deployments.
             </p>
 
             <div className="flex flex-wrap gap-2">
-              {["Java", "Spring Boot", "Spring Security", "REST APIs", "MySQL", "JPA"].map(tag => (
+              {["React.js", "Next.js", "TypeScript","Java", "Spring Boot", "Spring Security", "REST APIs", "MySQL", "JPA","AWS S3", "Tailwind"].map(tag => (
                 <span key={tag} className="text-xs px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-neutral-300">
                   {tag}
                 </span>
@@ -140,7 +140,7 @@ export default function Overlay({ progress }: { progress: MotionValue<number> })
             </div>
           </div>
 
-          {/* Card 2: Modern Frontend & AI */}
+          {/*  AI */}
           <div className="p-8 sm:p-10 rounded-3xl bg-[#121212]/80 border border-white/15 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] group hover:border-cyan-400/30 transition-all duration-500">
             <div className="flex items-center justify-between mb-6">
               <div className="p-3 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">
@@ -155,11 +155,11 @@ export default function Overlay({ progress }: { progress: MotionValue<number> })
               {siteData.personal.role2}
             </h2>
             <p className="text-neutral-400 text-sm sm:text-base font-light leading-relaxed mb-6">
-              Engineering fluid web interfaces with React & Next.js, and integrating Artificial Intelligence & Machine Learning features into modern, production-grade applications.
+              Engineering fluid web interfaces with integrating Artificial Intelligence & Machine Learning features into modern, production-grade applications.
             </p>
 
             <div className="flex flex-wrap gap-2">
-              {["React.js", "Next.js", "TypeScript", "Machine Learning", "AWS S3", "Tailwind"].map(tag => (
+              {["Machine Learning", "Deep Learning", "Natural Language Processing", "Automation", "Computer Vision", "Generative AI"].map(tag => (
                 <span key={tag} className="text-xs px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-neutral-300">
                   {tag}
                 </span>

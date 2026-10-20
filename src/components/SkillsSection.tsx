@@ -3,14 +3,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
-  Sparkles, 
   Terminal, 
   Layers, 
-  Cloud, 
-  Database, 
+  BrainCircuit,
   Cpu, 
-  CheckCircle2, 
-  ExternalLink 
+  CheckCircle2,
+  Sparkles,
+  ChevronDown,
+  ChevronUp
 } from "lucide-react";
 import { 
   FaJava, 
@@ -18,9 +18,7 @@ import {
   FaPython, 
   FaDocker, 
   FaAws, 
-  FaGitAlt, 
-  FaHtml5, 
-  FaCss3Alt 
+  FaGitAlt
 } from "react-icons/fa";
 import { 
   SiSpringboot, 
@@ -33,35 +31,40 @@ import {
   SiJavascript, 
   SiPostman, 
   SiBootstrap,
-  SiC
+  SiC,
+  SiNodedotjs,
+  SiExpress
 } from "react-icons/si";
 
 type Skill = {
   name: string;
-  category: "backend" | "frontend" | "cloud" | "db-ai";
+  category: "backend" | "frontend" | "cloud" | "ai";
   icon: React.ComponentType<{ className?: string }>;
   color: string;
   badge: string;
   description: string;
+  isCore?: boolean;
 };
 
 const allSkills: Skill[] = [
-  // Backend & Java
+  // Backend & Java (Core Flagships)
   { 
     name: "Java", 
     category: "backend", 
     icon: FaJava, 
     color: "#f89820", 
     badge: "Core Language",
-    description: "OOP, Concurrency, Enterprise Applications" 
+    description: "OOP, Concurrency, Enterprise Backend Architectures",
+    isCore: true
   },
   { 
     name: "Spring Boot", 
-    category: "backend", 
+    category: "backend",
     icon: SiSpringboot, 
     color: "#6db33f", 
     badge: "Specialization",
-    description: "RESTful APIs, Microservices, Dependency Injection" 
+    description: "RESTful APIs, Microservices, Dependency Injection & JPA",
+    isCore: true
   },
   { 
     name: "Spring Security", 
@@ -69,15 +72,24 @@ const allSkills: Skill[] = [
     icon: SiSpringboot, 
     color: "#6db33f", 
     badge: "Security",
-    description: "JWT Authentication, Role-Based Access Control" 
+    description: "JWT Authentication, OAuth2, and Role-Based Access Control",
+    isCore: true
   },
-  { 
-    name: "Python", 
+  {
+    name: "Node.js",
     category: "backend", 
-    icon: FaPython, 
-    color: "#3776ab", 
-    badge: "AI / Scripting",
-    description: "Data analysis, machine learning scripts & automation" 
+    icon: SiNodedotjs,
+    color: "#339933",
+    badge: "Runtime",
+    description: "JavaScript runtime for asynchronous backend services and APIs"
+  },
+  {
+    name: "Express.js",
+    category: "backend",
+    icon: SiExpress,
+    color: "#ffffff",
+    badge: "Framework",
+    description: "Modular routing, REST services, and Express middleware"
   },
   { 
     name: "C Programming", 
@@ -85,7 +97,7 @@ const allSkills: Skill[] = [
     icon: SiC, 
     color: "#a8b9cc", 
     badge: "Systems",
-    description: "Low-level memory management & competitive programming" 
+    description: "Memory pointers, data structures & competitive programming" 
   },
 
   // Frontend & Full-Stack
@@ -95,7 +107,8 @@ const allSkills: Skill[] = [
     icon: FaReact, 
     color: "#61dafb", 
     badge: "Primary UI",
-    description: "Modern hooks, state management & component architecture" 
+    description: "Custom hooks, state management & reactive component architecture",
+    isCore: true
   },
   { 
     name: "Next.js", 
@@ -103,7 +116,8 @@ const allSkills: Skill[] = [
     icon: SiNextdotjs, 
     color: "#ffffff", 
     badge: "Full-Stack",
-    description: "Server Components, App Router, SSR & performance optimization" 
+    description: "Server Components, App Router, SSR & performance optimization",
+    isCore: true
   },
   { 
     name: "TypeScript", 
@@ -111,7 +125,8 @@ const allSkills: Skill[] = [
     icon: SiTypescript, 
     color: "#3178c6", 
     badge: "Type-Safe",
-    description: "Strict typing, robust interfaces & scalable codebases" 
+    description: "Strict typing, robust generic models & maintainable codebases",
+    isCore: true
   },
   { 
     name: "JavaScript", 
@@ -119,7 +134,7 @@ const allSkills: Skill[] = [
     icon: SiJavascript, 
     color: "#f7df1e", 
     badge: "Modern ES6+",
-    description: "Asynchronous workflows, DOM manipulation & client logic" 
+    description: "Async/await patterns, DOM manipulation & client workflows" 
   },
   { 
     name: "Tailwind CSS", 
@@ -127,15 +142,15 @@ const allSkills: Skill[] = [
     icon: SiTailwindcss, 
     color: "#38bdf8", 
     badge: "Styling",
-    description: "Utility-first modern design systems & responsive layouts" 
+    description: "Utility-first modern design systems & fully responsive layouts" 
   },
   { 
     name: "Bootstrap 5", 
     category: "frontend", 
     icon: SiBootstrap, 
     color: "#7952b3", 
-    badge: "Framework",
-    description: "Rapid responsive grid & enterprise dashboards" 
+    badge: "UI Library",
+    description: "Responsive grids & enterprise dashboard layouts" 
   },
 
   // Cloud & DevOps
@@ -145,7 +160,8 @@ const allSkills: Skill[] = [
     icon: FaAws, 
     color: "#ff9900", 
     badge: "Cloud Storage",
-    description: "Media storage, asset pipelines & cloud infrastructure" 
+    description: "Cloud media storage, asset pipelines & production hosting",
+    isCore: true
   },
   { 
     name: "Docker", 
@@ -153,7 +169,7 @@ const allSkills: Skill[] = [
     icon: FaDocker, 
     color: "#2496ed", 
     badge: "Containers",
-    description: "Containerization, environment parity & multi-service setups" 
+    description: "Containerization, environment parity & multi-service deployment" 
   },
   { 
     name: "Git & GitHub", 
@@ -161,58 +177,82 @@ const allSkills: Skill[] = [
     icon: FaGitAlt, 
     color: "#f05032", 
     badge: "VCS",
-    description: "Branching strategies, collaborative workflows & CI/CD basics" 
+    description: "Version control, branching workflows & collaborative development" 
   },
   { 
     name: "Postman", 
     category: "cloud", 
     icon: SiPostman, 
     color: "#ff6c37", 
-    badge: "Testing",
-    description: "API testing, automated request suites & documentation" 
+    badge: "API Testing",
+    description: "Automated API endpoint testing, request mocks & documentation" 
   },
 
   // Databases & AI
   { 
     name: "MySQL", 
-    category: "db-ai", 
+    category: "ai", 
     icon: SiMysql, 
     color: "#4479a1", 
     badge: "Relational DB",
-    description: "Schema design, relational indexing & complex queries" 
+    description: "Schema normalization, indexing, connection pooling & complex queries",
+    isCore: true
   },
   { 
     name: "PostgreSQL", 
-    category: "db-ai", 
+    category: "ai", 
     icon: SiPostgresql, 
     color: "#336791", 
     badge: "Relational DB",
-    description: "ACID compliance, enterprise data integrity & optimization" 
+    description: "ACID compliance, relational integrity & performance tuning" 
   },
   { 
     name: "MongoDB", 
-    category: "db-ai", 
+    category: "ai", 
     icon: SiMongodb, 
     color: "#47a248", 
     badge: "NoSQL",
-    description: "Document stores, dynamic schemas & flexible storage" 
+    description: "Document stores, schema flexibility & aggregation pipelines" 
+  },
+  {
+    name: "Python",
+    category: "ai",
+    icon: FaPython,
+    color: "#3776ab",
+    badge: "Scripting / ML",
+    description: "Machine learning workflows, data preprocessing, and scripting"
+  },
+  {
+    name: "AI & Machine Learning",
+    category: "ai",
+    icon: Sparkles,
+    color: "#c084fc",
+    badge: "Intelligence",
+    description: "Integrating intelligent features, LLM workflows & modern AI APIs"
   },
 ];
 
-const categories = [
-  { id: "all", label: "All Technologies" },
-  { id: "backend", label: "Backend & Java" },
-  { id: "frontend", label: "Frontend & Full-Stack" },
-  { id: "cloud", label: "Cloud & DevOps" },
-  { id: "db-ai", label: "Databases & AI" },
+const categoryTabs = [
+  { id: "core", label: "Core Stack", count: 8 },
+  { id: "backend", label: "Backend & Java", count: 6 },
+  { id: "frontend", label: "Frontend & UI", count: 6 },
+  { id: "cloud", label: "Cloud & DevOps", count: 4 },
+  { id: "ai", label: "AI & Databases", count: 5 },
 ];
 
 export default function SkillsSection() {
-  const [activeTab, setActiveTab] = useState<string>("all");
+  const [activeTab, setActiveTab] = useState<string>("core");
+  const [showAllExpanded, setShowAllExpanded] = useState<boolean>(false);
 
-  const filteredSkills = activeTab === "all" 
-    ? allSkills 
-    : allSkills.filter(s => s.category === activeTab);
+  // Compute skills to show
+  let visibleSkills: Skill[];
+  if (showAllExpanded) {
+    visibleSkills = allSkills;
+  } else if (activeTab === "core") {
+    visibleSkills = allSkills.filter(s => s.isCore);
+  } else {
+    visibleSkills = allSkills.filter(s => s.category === activeTab);
+  }
 
   return (
     <section id="skills" className="w-full py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#121212]">
@@ -238,9 +278,9 @@ export default function SkillsSection() {
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
             Engineered for High Performance
           </h2>
-          
+
           <p className="text-neutral-400 text-base sm:text-lg font-light leading-relaxed">
-            From low-level algorithms to enterprise Java backends and reactive client applications, here is the technology stack I deploy to build robust, scalable software.
+            A curated overview of specialized frameworks, languages, and cloud infrastructures powering my full-stack and AI-driven solutions.
           </p>
         </motion.div>
 
@@ -256,7 +296,7 @@ export default function SkillsSection() {
             <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
               <Terminal className="w-6 h-6" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">Java & Spring Architecture</h3>
+            <h3 className="text-xl font-bold text-white mb-2">Full-Stack Development</h3>
             <p className="text-neutral-400 text-sm font-light leading-relaxed">
               Designing layered RESTful microservices, JWT security layers, database pooling, and domain-driven design.
             </p>
@@ -286,48 +326,59 @@ export default function SkillsSection() {
             className="p-6 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-md hover:border-purple-400/30 transition-all duration-300 group"
           >
             <div className="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-              <Database className="w-6 h-6" />
+              <BrainCircuit className="w-6 h-6" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">Cloud & Data Systems</h3>
+            <h3 className="text-xl font-bold text-white mb-2">AI Integration</h3>
             <p className="text-neutral-400 text-sm font-light leading-relaxed">
-              Connecting backend applications to AWS S3, relational databases, containerized environments, and AI pipelines.
+              Exploring AI/ML concepts, integrating intelligent features, and leveraging Python for machine learning experiments and automation.
             </p>
           </motion.div>
         </div>
 
-        {/* Category Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveTab(cat.id)}
-              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
-                activeTab === cat.id
-                  ? "bg-white text-black font-semibold shadow-[0_0_20px_rgba(255,255,255,0.2)] scale-105"
-                  : "bg-white/[0.04] text-neutral-400 hover:text-white hover:bg-white/[0.08] border border-white/10"
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
+        {/* Category Tabs: Focused Sets */}
+        <div className="flex flex-wrap items-center justify-center gap-2.5 mb-12">
+          {categoryTabs.map((cat) => {
+            const isSelected = !showAllExpanded && activeTab === cat.id;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => {
+                  setShowAllExpanded(false);
+                  setActiveTab(cat.id);
+                }}
+                className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 cursor-pointer flex items-center gap-2 ${
+                  isSelected
+                    ? "bg-white text-black font-semibold shadow-[0_0_20px_rgba(255,255,255,0.2)] scale-105"
+                    : "bg-white/[0.04] text-neutral-400 hover:text-white hover:bg-white/[0.08] border border-white/10"
+                }`}
+              >
+                <span>{cat.label}</span>
+                <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
+                  isSelected ? "bg-black/15 text-black font-bold" : "bg-white/10 text-neutral-400"
+                }`}>
+                  {cat.count}
+                </span>
+              </button>
+            );
+          })}
         </div>
 
-        {/* Skills Grid */}
+        {/* Focused Skills Grid (Never overwhelms with 20+ cards) */}
         <motion.div 
           layout
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
         >
           <AnimatePresence mode="popLayout">
-            {filteredSkills.map((skill) => {
+            {visibleSkills.map((skill) => {
               const Icon = skill.icon;
               return (
                 <motion.div
                   layout
                   key={skill.name}
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.25 }}
                   className="group relative p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-md hover:bg-white/[0.05] hover:border-white/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] flex flex-col justify-between"
                 >
                   {/* Subtle top-corner glow */}
@@ -369,6 +420,41 @@ export default function SkillsSection() {
             })}
           </AnimatePresence>
         </motion.div>
+
+        {/* Expand / Collapse Control */}
+        <div className="mt-12 flex flex-col items-center justify-center gap-4">
+          <button
+            onClick={() => setShowAllExpanded(!showAllExpanded)}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white font-medium text-xs sm:text-sm transition-all backdrop-blur-md cursor-pointer hover:scale-105 active:scale-95"
+          >
+            {showAllExpanded ? (
+              <>
+                <span>Collapse to Core Stack</span>
+                <ChevronUp className="w-4 h-4" />
+              </>
+            ) : (
+              <>
+                <span>Explore Full Tech Matrix ({allSkills.length} Technologies)</span>
+                <ChevronDown className="w-4 h-4" />
+              </>
+            )}
+          </button>
+
+          {/* Quick ecosystem tags strip */}
+          {!showAllExpanded && (
+            <div className="flex flex-wrap items-center justify-center gap-2 max-w-3xl text-center pt-2">
+              <span className="text-xs text-neutral-500 font-mono">Also experienced in:</span>
+              {["Docker", "MongoDB", "PostgreSQL", "Node.js", "Express.js", "Python", "Bootstrap 5", "Postman", "C"].map((item) => (
+                <span
+                  key={item}
+                  className="text-xs px-2.5 py-1 rounded-md bg-white/[0.02] border border-white/5 text-neutral-400 font-mono"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
 
       </div>
     </section>

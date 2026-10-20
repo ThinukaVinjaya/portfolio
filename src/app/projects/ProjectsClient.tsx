@@ -52,11 +52,11 @@ export default function ProjectsClient() {
           </div>
 
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-6">
-            Production & Open-Source Projects
+            Projects
           </h1>
           
           <p className="text-neutral-400 text-base sm:text-lg md:text-xl max-w-3xl font-light leading-relaxed">
-            Full-stack web applications, enterprise Java backends, and cloud architectures built for real clients and modern operational workflows.
+            Full-stack web applications, enterprise Java backends, and cloud architectures built for real clients and modern operational workflows.AI and machine learning projects.
           </p>
 
           {/* Technology Filter Chips */}

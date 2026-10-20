@@ -10,10 +10,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://thinuka.dev"),
   title: {
-    default: "Thinuka Vinjaya Wickramanayaka | Java Full-Stack Developer & AI Specialist",
+    default: "Thinuka Vinjaya Wickramanayaka |  Full-Stack Developer & AI Enthusiast",
     template: "%s | Thinuka Vinjaya Wickramanayaka",
   },
-  description: "Portfolio of Thinuka Vinjaya Wickramanayaka, a passionate Java Full-Stack Developer and AI/ML Enthusiast. Explore my open-source projects, articles, and achievements.",
+  description: "Portfolio of Thinuka Vinjaya Wickramanayaka, a passionate Full-Stack Developer and AI/ML Enthusiast. Explore my open-source projects, articles, and achievements.",
   keywords: ["Thinuka Vinjaya Wickramanayaka", "Full-Stack Developer", "Java Developer", "Spring Boot", "Next.js", "React", "AI/ML Enthusiast", "Portfolio", "Software Engineer"],
   authors: [{ name: "Thinuka Vinjaya Wickramanayaka" }],
   creator: "Thinuka Vinjaya Wickramanayaka",
@@ -21,14 +21,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://thinuka.dev",
-    title: "Thinuka Vinjaya Wickramanayaka | Full-Stack Developer & AI Specialist",
-    description: "Portfolio of Thinuka Vinjaya Wickramanayaka, a passionate Java Full-Stack Developer and AI/ML Enthusiast. Explore my open-source projects, articles, and achievements.",
+    title: "Thinuka Vinjaya Wickramanayaka | Full-Stack Developer & AI Enthusiast",
+    description: "Portfolio of Thinuka Vinjaya Wickramanayaka, a passionate Full-Stack Developer and AI/ML Enthusiast. Explore my open-source projects, articles, and achievements.",
     siteName: "Thinuka Vinjaya Wickramanayaka Portfolio",
   },
   twitter: {
     card: "summary_large_image",
     title: "Thinuka Vinjaya Wickramanayaka | Full-Stack Developer",
-    description: "Portfolio of Thinuka Vinjaya Wickramanayaka, a passionate Java Full-Stack Developer and AI/ML Enthusiast.",
+    description: "Portfolio of Thinuka Vinjaya Wickramanayaka, a passionate Full-Stack Developer and AI/ML Enthusiast.",
   },
   robots: {
     index: true,

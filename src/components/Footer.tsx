@@ -116,22 +116,18 @@ export default function Footer() {
               <ArrowUp className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" />
             </button>
 
-            <span className="text-xs font-mono text-neutral-500 mt-6 md:mt-0">
-              Sri Lanka • UTC +5:30
-            </span>
+           
           </div>
 
         </div>
 
         {/* Bottom copyright line */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-light gap-4">
-          <p>
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-center text-xs font-light gap-4">
+          <p className="text-center">
             &copy; {new Date().getFullYear()} Thinuka Vinjaya Wickramanayaka. All rights reserved.
           </p>
 
-          <p className="flex items-center gap-1.5 text-neutral-500">
-            <span>Designed & Engineered with Next.js 16, React 19 & Framer Motion</span>
-          </p>
+          
         </div>
 
       </div>

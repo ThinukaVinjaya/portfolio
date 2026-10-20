@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Thinuka Vinjaya Wickramanayaka | Java Full-Stack Developer & AI Specialist",
-  description: "Portfolio of Thinuka Vinjaya Wickramanayaka, an undergraduate pursuing BSc (Hons) Computer Science & Technology, Java Full-Stack Developer, Spring Boot Specialist, and AI/ML Enthusiast.",
+  title: "Thinuka Vinjaya Wickramanayaka | Full-Stack Developer & AI Enthusiast",
+  description: "Portfolio of Thinuka Vinjaya Wickramanayaka, an undergraduate pursuing BSc (Hons) Computer Science & Technology, Full-Stack Developer, Spring Boot Developer, and AI/ML Enthusiast.",
 };
 
 import ScrollyCanvas from "@/components/ScrollyCanvas";

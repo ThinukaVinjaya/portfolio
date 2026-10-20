@@ -6,9 +6,7 @@ import {
   BookOpen, 
   Award, 
   ArrowUpRight, 
-  Sparkles, 
-  ExternalLink,
-  Users
+  ExternalLink 
 } from "lucide-react";
 import Link from "next/link";
 import achievements from "@/data/achievements.json";
@@ -16,12 +14,12 @@ import articles from "@/data/articles.json";
 import certificates from "@/data/certificates.json";
 
 export default function FeaturedHighlights() {
-  // Latest achievements (last added comes first)
-  const orderedAchievements = [...achievements].reverse();
+  // Strictly latest 2 achievements (last added comes first)
+  const latestAchievements = [...achievements].reverse().slice(0, 2);
   // Latest 3 featured articles (last added comes first)
   const topArticles = [...articles].reverse().slice(0, 3);
-  // Latest 3 certificates (last added comes first)
-  const topCerts = [...certificates].reverse().slice(0, 3);
+  // Strictly latest 2 certificates (last added comes first)
+  const latestCertificates = [...certificates].reverse().slice(0, 2);
 
   return (
     <section className="w-full py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-[#121212] via-[#0e0e0e] to-[#121212]">
@@ -31,7 +29,7 @@ export default function FeaturedHighlights() {
       <div className="max-w-7xl mx-auto relative z-10 space-y-28">
 
         {/* ========================================================================= */}
-        {/* ROW 1: ACHIEVEMENTS & HACKATHONS */}
+        {/* ROW 1: ACHIEVEMENTS & HACKATHONS (STRICTLY LATEST 2) */}
         {/* ========================================================================= */}
         <div id="achievements">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
@@ -55,7 +53,7 @@ export default function FeaturedHighlights() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {orderedAchievements.map((item, idx) => (
+            {latestAchievements.map((item, idx) => (
               <motion.div
                 key={item.id}
                 initial={{ opacity: 0, y: 25 }}
@@ -65,14 +63,14 @@ export default function FeaturedHighlights() {
                 className="group p-6 sm:p-8 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl hover:border-amber-400/30 hover:bg-white/[0.04] transition-all duration-500 flex flex-col justify-between"
               >
                 <div>
-                  <div className="relative w-full h-52 sm:h-60 rounded-2xl overflow-hidden mb-6 border border-white/10 bg-black/40">
+                  <div className="relative w-full h-52 sm:h-64 rounded-2xl overflow-hidden mb-6 border border-white/10 bg-black/40">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={item.imageUrl}
                       alt={item.title}
                       className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
-                    <div className="absolute top-4 left-4 z-10 px-3 py-1 rounded-lg bg-black/70 backdrop-blur-md text-amber-300 text-xs font-mono font-semibold border border-amber-500/30 flex items-center gap-1.5">
+                    <div className="absolute top-4 left-4 z-10 px-3 py-1 rounded-lg bg-black/70 backdrop-blur-md text-amber-300 text-xs font-mono font-semibold border border-amber-500/30 flex items-center gap-1.5 shadow-lg">
                       <Trophy className="w-3.5 h-3.5" />
                       <span>{item.year}</span>
                     </div>
@@ -177,7 +175,7 @@ export default function FeaturedHighlights() {
         </div>
 
         {/* ========================================================================= */}
-        {/* ROW 3: CERTIFICATES & CREDENTIALS */}
+        {/* ROW 3: CERTIFICATES & CREDENTIALS (STRICTLY LATEST 2) */}
         {/* ========================================================================= */}
         <div id="certificates">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
@@ -195,40 +193,41 @@ export default function FeaturedHighlights() {
               href="/certificates"
               className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-neutral-300 hover:text-white transition-colors bg-white/5 hover:bg-white/10 px-4 py-2 rounded-full border border-white/10 w-fit"
             >
-              <span>View All Certificates</span>
+              <span>View All ({certificates.length}) Certificates</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {topCerts.map((cert, idx) => (
+          {/* Symmetrical 2-Column Grid for the Latest 2 Certificates */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {latestCertificates.map((cert, idx) => (
               <motion.div
                 key={cert.id}
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="group p-6 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl hover:border-emerald-400/30 hover:bg-white/[0.04] transition-all duration-500 flex flex-col justify-between"
+                transition={{ duration: 0.6, delay: idx * 0.15 }}
+                className="group p-6 sm:p-8 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl hover:border-emerald-400/30 hover:bg-white/[0.04] transition-all duration-500 flex flex-col justify-between"
               >
                 <div>
-                  <div className="relative w-full h-44 rounded-2xl overflow-hidden mb-5 border border-white/10 bg-black/40">
+                  <div className="relative w-full h-52 sm:h-64 rounded-2xl overflow-hidden mb-6 border border-white/10 bg-black/40">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={cert.imageUrl}
                       alt={cert.title}
                       className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
-                    <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-emerald-300 text-[10px] font-mono border border-emerald-500/30">
+                    <div className="absolute top-4 left-4 px-3 py-1.5 rounded-lg bg-black/70 backdrop-blur-md text-emerald-300 text-xs font-mono font-medium border border-emerald-500/30 shadow-lg">
                       {cert.issuer}
                     </div>
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-bold text-white mb-2 line-clamp-2 group-hover:text-emerald-200 transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 line-clamp-2 group-hover:text-emerald-200 transition-colors">
                     {cert.title}
                   </h3>
 
-                  <p className="text-xs text-neutral-400 font-mono mb-4">
-                    Issued: {cert.date}
+                  <p className="text-xs text-neutral-400 font-mono mb-6">
+                    Issued: {cert.date} • Verified Credential
                   </p>
                 </div>
 
@@ -236,10 +235,10 @@ export default function FeaturedHighlights() {
                   href={cert.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-between text-xs font-semibold text-neutral-300 hover:text-white pt-3 border-t border-white/10 group-hover:text-emerald-300 transition-colors"
+                  className="inline-flex items-center justify-between text-xs sm:text-sm font-semibold text-neutral-300 hover:text-white pt-4 border-t border-white/10 group-hover:text-emerald-300 transition-colors"
                 >
-                  <span>Verify Credential</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <span>Verify Credential Certificate</span>
+                  <ExternalLink className="w-4 h-4" />
                 </a>
               </motion.div>
             ))}
