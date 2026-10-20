@@ -8,26 +8,27 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://thinuka.dev"),
   title: {
-    default: "Thinuka Vinjaya Wickramanayaka | Full-Stack Developer",
+    default: "Thinuka Vinjaya Wickramanayaka |  Full-Stack Developer & AI Enthusiast",
     template: "%s | Thinuka Vinjaya Wickramanayaka",
   },
-  description: "Portfolio of Thinuka Vinjaya Wickramanayaka, a passionate Java Full-Stack Developer and AI/ML Enthusiast. Explore my open-source projects, articles, and achievements.",
-  keywords: ["Thinuka Vinjaya Wickramanayaka", "Full-Stack Developer", "Java Developer", "Next.js", "React", "AI/ML Enthusiast", "Portfolio", "Software Engineer"],
+  description: "Portfolio of Thinuka Vinjaya Wickramanayaka, a passionate Full-Stack Developer and AI/ML Enthusiast. Explore my open-source projects, articles, and achievements.",
+  keywords: ["Thinuka Vinjaya Wickramanayaka", "Full-Stack Developer", "Java Developer", "Spring Boot", "Next.js", "React", "AI/ML Enthusiast", "Portfolio", "Software Engineer"],
   authors: [{ name: "Thinuka Vinjaya Wickramanayaka" }],
   creator: "Thinuka Vinjaya Wickramanayaka",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://thinuka.dev", // Using a placeholder domain assuming it's thinuka.dev or similar, can be updated later  
-    title: "Thinuka Vinjaya Wickramanayaka | Full-Stack Developer",
-    description: "Portfolio of Thinuka Vinjaya Wickramanayaka, a passionate Java Full-Stack Developer and AI/ML Enthusiast. Explore my open-source projects, articles, and achievements.",
+    url: "https://thinuka.dev",
+    title: "Thinuka Vinjaya Wickramanayaka | Full-Stack Developer & AI Enthusiast",
+    description: "Portfolio of Thinuka Vinjaya Wickramanayaka, a passionate Full-Stack Developer and AI/ML Enthusiast. Explore my open-source projects, articles, and achievements.",
     siteName: "Thinuka Vinjaya Wickramanayaka Portfolio",
   },
   twitter: {
     card: "summary_large_image",
     title: "Thinuka Vinjaya Wickramanayaka | Full-Stack Developer",
-    description: "Portfolio of Thinuka Vinjaya Wickramanayaka, a passionate Java Full-Stack Developer and AI/ML Enthusiast.",
+    description: "Portfolio of Thinuka Vinjaya Wickramanayaka, a passionate Full-Stack Developer and AI/ML Enthusiast.",
   },
   robots: {
     index: true,
@@ -42,6 +43,7 @@ export const metadata: Metadata = {
   },
 };
 
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import ScrollIndicator from "@/components/ScrollIndicator";
@@ -53,9 +55,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} antialiased dark scroll-smooth`}>
-      <body className="min-h-screen bg-background text-foreground bg-[#121212] overflow-x-hidden w-full relative flex flex-col cursor-none">
+      <body className="min-h-screen bg-background text-foreground bg-[#121212] overflow-x-hidden w-full relative flex flex-col">
         <CustomCursor />
         <ScrollIndicator />
+        <Header />
         <div className="flex-grow flex flex-col w-full relative">
           {children}
         </div>

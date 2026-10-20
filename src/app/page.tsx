@@ -1,44 +1,54 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Home | Thinuka Vinjaya Wickramanayaka",
+  title: "Thinuka Vinjaya Wickramanayaka | Full-Stack Developer & AI Enthusiast",
+  description: "Portfolio of Thinuka Vinjaya Wickramanayaka, an undergraduate pursuing BSc (Hons) Computer Science & Technology, Full-Stack Developer, Spring Boot Developer, and AI/ML Enthusiast.",
 };
 
 import ScrollyCanvas from "@/components/ScrollyCanvas";
 import Overlay from "@/components/Overlay";
-import ActionButtons from "@/components/ActionButtons";
-import Header from "@/components/Header";
-import ContactSection from "@/components/ContactSection";
-import ScrollIndicator from "@/components/ScrollIndicator";
 import SkillsSection from "@/components/SkillsSection";
+import FeaturedProjects from "@/components/FeaturedProjects";
+import FeaturedHighlights from "@/components/FeaturedHighlights";
+import ActionButtons from "@/components/ActionButtons";
+import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
   return (
     <main className="w-full bg-[#121212] min-h-screen relative">
-      <Header />
-      
-      <ScrollyCanvas sequencePaths={["/sequance1", "/sequance2"]} OverlayComponent={Overlay} />
+      {/* 240-Frame Interactive Scrollytelling Experience */}
+      <div id="hero">
+        <ScrollyCanvas sequencePaths={["/sequance1", "/sequance2"]} OverlayComponent={Overlay} />
+      </div>
 
+      <div id="about" className="-mt-16" />
+
+      {/* Interactive Tech Matrix & Architecture Pillars */}
       <SkillsSection />
 
-      {/* Unified Discover & Contact Section */}
-      <section className="w-full pt-12 pb-6 px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center relative overflow-hidden bg-gradient-to-b from-[#121212] to-[#0a0a0a]">
-        {/* Subtle background radial glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] sm:w-[800px] sm:h-[500px] bg-white/[0.015] blur-[150px] rounded-full pointer-events-none"></div>
+      {/* Flagship Production Projects Showcase */}
+      <FeaturedProjects />
 
-        <div className="text-center mb-12 sm:mb-16 relative z-10 w-full">
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">Discover More</h2>
-          <div className="w-12 sm:w-16 h-px bg-white/20 mx-auto"></div>
+      {/* Hackathons, Medium Publications & Verified Credentials */}
+      <FeaturedHighlights />
+
+      {/* Discovery Hub */}
+      <section className="w-full py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-[#121212] to-[#0a0a0a]">
+        <div className="max-w-7xl mx-auto relative z-10 text-center mb-16">
+          <span className="text-xs font-mono uppercase tracking-[0.3em] text-cyan-400 mb-2 block">
+            Navigation Hub
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4">
+            Discover More Dimensions
+          </h2>
+          <div className="w-16 h-px bg-white/20 mx-auto" />
         </div>
 
-        <div className="max-w-6xl w-full flex justify-center relative z-10 mb-24 sm:mb-32 pt-8 sm:pt-16">
-          <ActionButtons />
-        </div>
-
-        <ContactSection />
-
-
+        <ActionButtons />
       </section>
+
+      {/* Interactive Direct Contact Section */}
+      <ContactSection />
     </main>
   );
 }

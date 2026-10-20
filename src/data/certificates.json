@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "title": "Spring Boot Rest APLs: Building Modern APIs with Spring Boot",
+    "title": "Spring Boot Rest APIs: Building Modern APIs with Spring Boot",
     "issuer": "Udemy",
     "date": "2025",
     "imageUrl": "https://udemy-certificate.s3.amazonaws.com/image/UC-d81d896b-b41e-42b6-a7dc-933a8093c74d.jpg?v=1750428077000",
@@ -18,25 +18,65 @@
   {
     "id": "3",
     "title": "Getting Started In Spring Development",
-    "issuer": "LinkedIn",
+    "issuer": "LinkedIn Learning",
     "date": "2025",
-    "imageUrl": "../certificates/c1.png",
+    "imageUrl": "/certificates/c1.png",
     "link": "https://www.linkedin.com/learning/certificates/41de1d00dd3c6966673d6d84673bd33001e0500ecfebb8380d7be75e72ce9b2c?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BqBlxAFX7Tqu4eqkaPhNJxQ%3D%3D"
   },
   {
     "id": "4",
     "title": "Building Your Skills in Spring Development",
-    "issuer": "LinkedIn",
+    "issuer": "LinkedIn Learning",
     "date": "2025",
-    "imageUrl": "../certificates/c2.png",
+    "imageUrl": "/certificates/c2.png",
     "link": "https://www.linkedin.com/learning/certificates/39f6fd470a8dc5439d050309759317140d5f7d92171ae7d90df5178beee0c71a?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BqBlxAFX7Tqu4eqkaPhNJxQ%3D%3D"
   },
   {
     "id": "5",
     "title": "Explore React.js Development",
-    "issuer": "LinkedIn",
+    "issuer": "LinkedIn Learning",
     "date": "2026",
-    "imageUrl": "../certificates/c3.png",
+    "imageUrl": "/certificates/c3.png",
     "link": "https://www.linkedin.com/learning/certificates/f6428e10c428bee6e16646f75b4d85b0ca61f98bc255aa0e55a6c3d2fd6c02d0?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJGkc8amPTKC4J2qc6ehCEQ%3D%3D"
+  },
+  {
+    "id": "6",
+    "title": "Fundermentals of Machine Learning and Artificial Intelligence",
+    "issuer": "AWS Training and Certification",
+    "date": "2026",
+    "imageUrl": "/certificates/c4.png",
+    "link": "https://www.linkedin.com/in/thinukavinjayawickramanayaka/details/certifications/"
+  },
+  {
+    "id": "7",
+    "title": "Introduction to AI",
+    "issuer": "Google",
+    "date": "2026",
+    "imageUrl": "/certificates/c5.png",
+    "link": "https://www.linkedin.com/in/thinukavinjayawickramanayaka/details/certifications/"
+  },
+  {
+    "id" : "8",
+    "title" : "AI Fundamentals",
+    "issuer" : "Google",
+    "date" : "2026",
+    "imageUrl" : "/certificates/c6.png", 
+    "link" : "https://www.linkedin.com/in/thinukavinjayawickramanayaka/details/certifications/"
+  },
+  {
+    "id" : "9",
+    "title" : "AI Fundamentals: Foundations for Understanding AI",
+    "issuer" : "IBM SkillsBuild",
+    "date" : "2026",
+    "imageUrl" : "/certificates/c7.png", 
+    "link" : "https://www.linkedin.com/in/thinukavinjayawickramanayaka/details/certifications/"
+  },
+  {
+    "id" : "10",
+    "title" : "Career Essentials in Genarative AI by Microsoft and LinkedIn",
+    "issuer" : "LinkedIn Learning",
+    "date" : "2026",
+    "imageUrl" : "/certificates/c8.png", 
+    "link" : "https://www.linkedin.com/in/thinukavinjayawickramanayaka/details/certifications/"
   }
 ]
