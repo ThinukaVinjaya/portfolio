@@ -62,6 +62,7 @@ const socialLinks = [
 export default function ContactSection() {
   const [copied, setCopied] = useState(false);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
   const emailAddress = "thinukavinjayauni@gmail.com";
 
   const handleCopyEmail = () => {
@@ -73,20 +74,33 @@ export default function ContactSection() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("submitting");
+    setErrorMessage("");
     const formData = new FormData(e.currentTarget);
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+    if (!accessKey?.trim()) {
+      setErrorMessage("The contact form is not configured yet. Please email me directly.");
+      setStatus("error");
+      return;
+    }
+
+    formData.set("access_key", accessKey);
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData,
       });
+      const result: { success?: boolean } = await response.json();
 
-      if (response.ok) {
+      if (response.ok && result.success === true) {
         setStatus("success");
       } else {
+        setErrorMessage("Could not send your message. Please email me directly.");
         setStatus("error");
       }
     } catch {
+      setErrorMessage("Could not send your message. Please check your connection or email me directly.");
       setStatus("error");
     }
   };
@@ -256,12 +270,6 @@ export default function ContactSection() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                <input 
-                  type="hidden" 
-                  name="access_key" 
-                  value={process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE"} 
-                />
-
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-xs font-medium text-neutral-300">
@@ -321,7 +329,7 @@ export default function ContactSection() {
 
                 {status === "error" && (
                   <p className="text-xs text-rose-400">
-                    Could not send message automatically. Please email directly at {emailAddress}.
+                    {errorMessage} <a className="underline" href={`mailto:${emailAddress}`}>{emailAddress}</a>.
                   </p>
                 )}
 
