@@ -33,9 +33,9 @@ export default function AchievementsClient() {
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-600/5 blur-[120px] rounded-full mix-blend-screen"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8 pt-16 md:pt-24">
+      <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8 pt-8 sm:pt-16 md:pt-24">
         {/* Navigation */}
-        <Link href="/" className="inline-flex items-center text-neutral-400 hover:text-white transition-all mb-10 sm:mb-16 group bg-white/5 px-4 py-2 rounded-full border border-white/10 hover:bg-white/10 backdrop-blur-md">
+        <Link href="/" className="inline-flex items-center text-neutral-400 hover:text-white transition-all mb-6 sm:mb-10 group bg-white/5 px-4 py-2 rounded-full border border-white/10 hover:bg-white/10 backdrop-blur-md">
           <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
           <span className="text-sm font-medium">Back to Home</span>
         </Link>
@@ -44,10 +44,10 @@ export default function AchievementsClient() {
           initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-20 sm:mb-32 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8"
+          className="mb-10 sm:mb-20 md:mb-32 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8"
         >
           <div className="max-w-2xl">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-500 mb-6 drop-shadow-xl">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-4 sm:mb-6">
               The Journey
             </h1>
             <p className="text-neutral-400 text-base sm:text-lg md:text-xl font-light leading-relaxed">
@@ -67,7 +67,7 @@ export default function AchievementsClient() {
         </motion.div>
 
         {/* Tree Timeline Container */}
-        <div ref={containerRef} className="relative max-w-5xl mx-auto pb-32">
+        <div ref={containerRef} className="relative max-w-5xl mx-auto pb-16 sm:pb-32">
           {/* Central Trunk Background Line */}
           <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-1 bg-white/[0.03] -translate-x-1/2 rounded-full"></div>
           
@@ -82,7 +82,7 @@ export default function AchievementsClient() {
             const Icon = IconMap[item.icon] || Trophy;
             
             return (
-              <div key={item.id} className="relative mb-24 md:mb-40 last:mb-0 group">
+              <div key={item.id} className="relative mb-12 sm:mb-24 md:mb-36 last:mb-0 group">
                 
                 {/* Node Center Dot & Pulse */}
                 <div className="absolute left-6 md:left-1/2 top-12 -translate-x-1/2 md:-translate-x-1/2 z-20 flex items-center justify-center">
@@ -114,18 +114,18 @@ export default function AchievementsClient() {
                     <div className={`relative p-1 rounded-[2rem] bg-gradient-to-br ${item.color} overflow-hidden group-hover:-translate-y-2 transition-transform duration-500`}>
                       <div className="absolute inset-0 bg-[#121212] rounded-[2rem] m-[1px] z-0"></div>
                       
-                      <div className="relative z-10 bg-white/[0.02] backdrop-blur-xl p-6 sm:p-8 rounded-[calc(2rem-1px)] h-full w-full border border-white/5 shadow-2xl">
+                      <div className="relative z-10 bg-white/[0.02] backdrop-blur-xl p-5 sm:p-8 rounded-[calc(2rem-1px)] h-full w-full border border-white/5 shadow-2xl">
                         
-                        <div className="flex items-center justify-between mb-6">
-                          <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/10 text-white/90 text-xs font-bold tracking-widest uppercase border border-white/10 shadow-inner">
+                        <div className="flex items-center justify-between mb-4 sm:mb-6">
+                          <span className="inline-flex items-center justify-center px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-white/10 text-white/90 text-xs font-bold tracking-widest uppercase border border-white/10 shadow-inner">
                             {item.year}
                           </span>
-                          <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 md:group-hover:rotate-12 transition-transform">
-                            <Icon className="w-5 h-5 text-neutral-300 md:group-hover:text-white transition-colors" />
+                          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 md:group-hover:rotate-12 transition-transform">
+                            <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-300 md:group-hover:text-white transition-colors" />
                           </div>
                         </div>
                         
-                        <div className="relative w-full h-48 sm:h-56 rounded-2xl overflow-hidden mb-6 border border-white/5 ring-1 ring-black/50 shadow-2xl">
+                        <div className="relative w-full h-44 sm:h-56 rounded-2xl overflow-hidden mb-5 sm:mb-6 border border-white/5 ring-1 ring-black/50 shadow-2xl">
                           <div className="absolute inset-0 bg-black/40 md:group-hover:bg-transparent transition-colors duration-500 z-10"></div>
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img 

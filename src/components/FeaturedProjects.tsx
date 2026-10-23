@@ -11,7 +11,7 @@ export default function FeaturedProjects() {
   const latestProjects = [...projects].reverse().slice(0, 2);
 
   return (
-    <section id="projects" className="w-full py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#121212]">
+    <section id="projects" className="w-full py-14 sm:py-20 md:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#121212]">
       {/* Background radial glow */}
       <div className="absolute top-1/3 left-10 w-[600px] h-[500px] bg-cyan-500/[0.02] blur-[150px] rounded-full pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-[600px] h-[500px] bg-amber-500/[0.02] blur-[150px] rounded-full pointer-events-none" />
@@ -19,7 +19,7 @@ export default function FeaturedProjects() {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-16 gap-4 sm:gap-6">
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-cyan-300 text-xs font-semibold tracking-widest uppercase mb-4 shadow-[0_0_20px_rgba(56,189,248,0.1)]">
               <FolderDot className="w-3.5 h-3.5" />
@@ -40,7 +40,7 @@ export default function FeaturedProjects() {
         </div>
 
         {/* Featured Projects Grid: Strictly Latest 2 Projects */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
           {latestProjects.map((project, idx) => {
             const hasBackend = Boolean(project.githubUrlbackend && project.githubUrlbackend.trim().length > 0);
             const hasFrontend = Boolean(project.githubUrlfrontend && project.githubUrlfrontend.trim().length > 0);
@@ -56,7 +56,7 @@ export default function FeaturedProjects() {
                 className="group relative flex flex-col rounded-3xl sm:rounded-[2.5rem] border border-white/10 bg-white/[0.02] backdrop-blur-xl overflow-hidden hover:border-white/25 hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)] transition-all duration-500 hover:-translate-y-1.5"
               >
                 {/* Media Preview Container */}
-                <div className="relative w-full h-64 sm:h-80 overflow-hidden bg-black/40 border-b border-white/10">
+                <div className="relative w-full h-52 sm:h-64 md:h-80 overflow-hidden bg-black/40 border-b border-white/10">
                   <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent z-10 opacity-70 group-hover:opacity-40 transition-opacity duration-500" />
                   
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -86,7 +86,7 @@ export default function FeaturedProjects() {
                 </div>
 
                 {/* Content Box */}
-                <div className="p-6 sm:p-8 flex flex-col flex-grow">
+                <div className="p-5 sm:p-8 flex flex-col flex-grow">
                   <Link href={`/projects/${project.id}`}>
                     <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
                       {project.title}
@@ -162,7 +162,7 @@ export default function FeaturedProjects() {
         </div>
 
         {/* Bottom CTA to View All */}
-        <div className="mt-12 text-center">
+        <div className="mt-8 sm:mt-12 text-center">
           <Link
             href="/projects"
             className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white font-medium text-xs sm:text-sm transition-all backdrop-blur-md group hover:scale-105 active:scale-95 shadow-lg"

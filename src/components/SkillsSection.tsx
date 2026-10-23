@@ -255,7 +255,7 @@ export default function SkillsSection() {
   }
 
   return (
-    <section id="skills" className="w-full py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#121212]">
+    <section id="skills" className="w-full py-14 sm:py-20 md:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#121212]">
       {/* Background radial glow accents */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-cyan-500/[0.03] blur-[140px] rounded-full pointer-events-none" />
       <div className="absolute bottom-1/4 right-10 w-[500px] h-[350px] bg-amber-500/[0.02] blur-[140px] rounded-full pointer-events-none" />
@@ -268,14 +268,14 @@ export default function SkillsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-10 sm:mb-16"
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-cyan-300 text-xs font-semibold tracking-widest uppercase mb-4 shadow-[0_0_20px_rgba(56,189,248,0.1)]">
             <Cpu className="w-3.5 h-3.5" />
             <span>Technical Capabilities</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-4 sm:mb-6">
             Engineered for High Performance
           </h2>
 
@@ -285,13 +285,13 @@ export default function SkillsSection() {
         </motion.div>
 
         {/* 3 Core Architecture Pillars */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="p-6 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-md hover:border-amber-400/30 transition-all duration-300 group"
+            className="p-5 sm:p-6 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-md hover:border-amber-400/30 transition-all duration-300 group"
           >
             <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
               <Terminal className="w-6 h-6" />
@@ -307,7 +307,7 @@ export default function SkillsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="p-6 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-md hover:border-cyan-400/30 transition-all duration-300 group"
+            className="p-5 sm:p-6 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-md hover:border-cyan-400/30 transition-all duration-300 group"
           >
             <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
               <Layers className="w-6 h-6" />
@@ -323,7 +323,7 @@ export default function SkillsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="p-6 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-md hover:border-purple-400/30 transition-all duration-300 group"
+            className="p-5 sm:p-6 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-md hover:border-purple-400/30 transition-all duration-300 group"
           >
             <div className="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
               <BrainCircuit className="w-6 h-6" />
@@ -336,7 +336,7 @@ export default function SkillsSection() {
         </div>
 
         {/* Category Tabs: Focused Sets */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 mb-12">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-8 sm:mb-12">
           {categoryTabs.map((cat) => {
             const isSelected = !showAllExpanded && activeTab === cat.id;
             return (
@@ -346,7 +346,7 @@ export default function SkillsSection() {
                   setShowAllExpanded(false);
                   setActiveTab(cat.id);
                 }}
-                className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 cursor-pointer flex items-center gap-2 ${
+                className={`px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 cursor-pointer flex items-center gap-2 ${
                   isSelected
                     ? "bg-white text-black font-semibold shadow-[0_0_20px_rgba(255,255,255,0.2)] scale-105"
                     : "bg-white/[0.04] text-neutral-400 hover:text-white hover:bg-white/[0.08] border border-white/10"
@@ -422,7 +422,7 @@ export default function SkillsSection() {
         </motion.div>
 
         {/* Expand / Collapse Control */}
-        <div className="mt-12 flex flex-col items-center justify-center gap-4">
+        <div className="mt-8 sm:mt-12 flex flex-col items-center justify-center gap-4">
           <button
             onClick={() => setShowAllExpanded(!showAllExpanded)}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white font-medium text-xs sm:text-sm transition-all backdrop-blur-md cursor-pointer hover:scale-105 active:scale-95"

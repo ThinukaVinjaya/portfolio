@@ -53,7 +53,7 @@ export default function ActionButtons() {
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-7xl mx-auto px-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full max-w-7xl mx-auto px-4">
       {cards.map((card) => (
         <motion.div
           key={card.title}
@@ -65,17 +65,17 @@ export default function ActionButtons() {
         >
           <Link
             href={card.href}
-            className="group relative flex flex-col justify-between p-7 rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-xl overflow-hidden transition-all duration-500 hover:bg-white/[0.05] hover:border-white/30 hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)] hover:-translate-y-2 h-full w-full block"
+            className="group relative flex flex-col justify-between p-5 sm:p-7 rounded-2xl sm:rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-xl overflow-hidden transition-all duration-500 hover:bg-white/[0.05] hover:border-white/30 hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)] hover:-translate-y-2 h-full w-full block"
           >
             {/* Top decorative gradient glow */}
             <div className={`absolute -top-12 -right-12 w-32 h-32 rounded-full bg-gradient-to-br ${card.color} blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
 
             <div>
-              <div className="flex justify-between items-start mb-8 relative z-10">
-                <div className={`p-3.5 rounded-2xl bg-white/[0.04] border border-white/10 ${card.accent} group-hover:scale-110 transition-transform duration-300`}>
-                  <card.icon className="w-6 h-6" strokeWidth={1.8} />
+              <div className="flex justify-between items-start mb-5 sm:mb-8 relative z-10">
+                <div className={`p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white/[0.04] border border-white/10 ${card.accent} group-hover:scale-110 transition-transform duration-300`}>
+                  <card.icon className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={1.8} />
                 </div>
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:text-black transition-colors duration-300">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:text-black transition-colors duration-300">
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
               </div>
@@ -93,7 +93,7 @@ export default function ActionButtons() {
               </p>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-semibold text-neutral-400 group-hover:text-white transition-colors">
+            <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-white/5 flex items-center justify-between text-xs font-semibold text-neutral-400 group-hover:text-white transition-colors">
               <span>View details</span>
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </div>

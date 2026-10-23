@@ -106,7 +106,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="w-full pt-16 pb-20 relative">
+    <section id="contact" className="w-full pt-12 sm:pt-16 pb-14 sm:pb-20 relative">
       <div className="max-w-6xl w-full mx-auto relative z-10 px-4 sm:px-6">
         
         {/* Section Header */}
@@ -115,14 +115,14 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 sm:mb-20"
+          className="text-center mb-10 sm:mb-16"
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-cyan-300 text-xs font-semibold tracking-widest uppercase mb-4 shadow-[0_0_20px_rgba(56,189,248,0.1)]">
             <MessageSquare className="w-3.5 h-3.5" />
             <span>Get in Touch</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-4 sm:mb-6">
             Let&apos;s Build Something Great Together
           </h2>
           <p className="text-neutral-400 text-base sm:text-lg font-light max-w-2xl mx-auto leading-relaxed">
@@ -131,7 +131,7 @@ export default function ContactSection() {
         </motion.div>
 
         {/* Contact Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-start">
           
           {/* Left: Contact Info & Socials (5 cols) */}
           <motion.div
@@ -139,10 +139,10 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-5 space-y-6"
+            className="lg:col-span-5 space-y-4 sm:space-y-6"
           >
             {/* Quick Email Copy Card */}
-            <div className="p-7 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl hover:border-cyan-400/30 transition-all duration-300">
+            <div className="p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl hover:border-cyan-400/30 transition-all duration-300">
               <span className="text-xs font-mono uppercase tracking-widest text-cyan-400 block mb-3">
                 Direct Contact
               </span>
@@ -181,7 +181,7 @@ export default function ContactSection() {
             </div>
 
             {/* Location & Availability Card */}
-            <div className="p-7 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl space-y-4">
+            <div className="p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl space-y-4">
               <div className="flex items-center gap-3.5">
                 <div className="p-2.5 rounded-xl bg-white/5 text-neutral-300 border border-white/10">
                   <MapPin className="w-4 h-4 text-cyan-300" />
@@ -207,7 +207,7 @@ export default function ContactSection() {
             </div>
 
             {/* Social Links Matrix */}
-            <div className="p-7 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl">
+            <div className="p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl">
               <h3 className="text-sm font-semibold text-white mb-4 tracking-wide">
                 Social Profiles & Repositories
               </h3>
@@ -242,12 +242,12 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 p-8 sm:p-10 rounded-3xl sm:rounded-[2.5rem] bg-white/[0.02] border border-white/10 backdrop-blur-xl shadow-2xl"
+            className="lg:col-span-7 p-5 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl sm:rounded-[2.5rem] bg-white/[0.02] border border-white/10 backdrop-blur-xl shadow-2xl"
           >
-            <h3 className="text-2xl font-bold text-white mb-2">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
               Send a Direct Message
             </h3>
-            <p className="text-neutral-400 text-sm font-light mb-8">
+            <p className="text-neutral-400 text-xs sm:text-sm font-light mb-5 sm:mb-8">
               Fill out the form below and I will get back to you within 24 hours.
             </p>
 

@@ -18,8 +18,19 @@ export default function ScrollyCanvas({
   const [isLoaded, setIsLoaded] = useState(false);
   
   const totalFrames = 120 * sequencePaths.length; // 240 frames
-  // 700vh provides a smooth, cinematic scroll speed that isn't excessively long
-  const containerHeightVh = 700;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize, { passive: true });
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // 480vh on mobile ensures fast, responsive scrolling; 650vh on desktop provides smooth cinematic feel
+  const containerHeightVh = isMobile ? 480 : 650;
   // Let the 240 frames play across 0% to 75% of scroll, then hold final pose for the About section
   const animationEndProgress = 0.75; 
 
@@ -150,7 +161,7 @@ export default function ScrollyCanvas({
       style={{ height: `${containerHeightVh}vh` }} 
       className="relative w-full bg-[#121212]"
     >
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
+      <div className="sticky top-0 h-screen h-[100dvh] w-full overflow-hidden">
         {/* Canvas Display */}
         <canvas
           ref={canvasRef}
@@ -162,7 +173,7 @@ export default function ScrollyCanvas({
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(18,18,18,0.7)_100%)] pointer-events-none z-[1]" />
         
         {/* Bottom Smooth Transition to Next Section */}
-        <div className="absolute inset-x-0 bottom-0 h-44 sm:h-64 bg-gradient-to-t from-[#121212] via-[#121212]/90 to-transparent pointer-events-none z-[2]" />
+        <div className="absolute inset-x-0 bottom-0 h-24 sm:h-44 md:h-64 bg-gradient-to-t from-[#121212] via-[#121212]/90 to-transparent pointer-events-none z-[2]" />
 
         {/* Narrative Overlay Component */}
         <div className="absolute inset-0 z-10 pointer-events-none">

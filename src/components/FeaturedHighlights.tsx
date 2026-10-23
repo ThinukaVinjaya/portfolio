@@ -22,17 +22,17 @@ export default function FeaturedHighlights() {
   const latestCertificates = [...certificates].reverse().slice(0, 2);
 
   return (
-    <section className="w-full py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-[#121212] via-[#0e0e0e] to-[#121212]">
+    <section className="w-full py-14 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-[#121212] via-[#0e0e0e] to-[#121212]">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/3 w-[600px] h-[400px] bg-purple-500/[0.02] blur-[150px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto relative z-10 space-y-28">
+      <div className="max-w-7xl mx-auto relative z-10 space-y-14 sm:space-y-20 md:space-y-28">
 
         {/* ========================================================================= */}
         {/* ROW 1: ACHIEVEMENTS & HACKATHONS (STRICTLY LATEST 2) */}
         {/* ========================================================================= */}
         <div id="achievements">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4">
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-semibold tracking-widest uppercase mb-3">
                 <Trophy className="w-3.5 h-3.5" />
@@ -52,7 +52,7 @@ export default function FeaturedHighlights() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {latestAchievements.map((item, idx) => (
               <motion.div
                 key={item.id}
@@ -60,10 +60,10 @@ export default function FeaturedHighlights() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.15 }}
-                className="group p-6 sm:p-8 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl hover:border-amber-400/30 hover:bg-white/[0.04] transition-all duration-500 flex flex-col justify-between"
+                className="group p-5 sm:p-8 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl hover:border-amber-400/30 hover:bg-white/[0.04] transition-all duration-500 flex flex-col justify-between"
               >
                 <div>
-                  <div className="relative w-full h-52 sm:h-64 rounded-2xl overflow-hidden mb-6 border border-white/10 bg-black/40">
+                  <div className="relative w-full h-48 sm:h-64 rounded-2xl overflow-hidden mb-5 sm:mb-6 border border-white/10 bg-black/40">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={item.imageUrl}
@@ -104,7 +104,7 @@ export default function FeaturedHighlights() {
         {/* ROW 2: TECHNICAL ARTICLES ON MEDIUM */}
         {/* ========================================================================= */}
         <div id="articles">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4">
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-semibold tracking-widest uppercase mb-3">
                 <BookOpen className="w-3.5 h-3.5" />
@@ -124,7 +124,7 @@ export default function FeaturedHighlights() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             {topArticles.map((article, idx) => (
               <motion.a
                 key={article.id}
@@ -135,10 +135,10 @@ export default function FeaturedHighlights() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="group p-6 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl hover:border-cyan-400/30 hover:bg-white/[0.04] transition-all duration-500 flex flex-col justify-between"
+                className="group p-5 sm:p-6 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl hover:border-cyan-400/30 hover:bg-white/[0.04] transition-all duration-500 flex flex-col justify-between"
               >
                 <div>
-                  <div className="relative w-full h-44 rounded-2xl overflow-hidden mb-5 border border-white/10 bg-black/40">
+                  <div className="relative w-full h-40 sm:h-44 rounded-2xl overflow-hidden mb-4 sm:mb-5 border border-white/10 bg-black/40">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={article.imageUrl}
@@ -178,7 +178,7 @@ export default function FeaturedHighlights() {
         {/* ROW 3: CERTIFICATES & CREDENTIALS (STRICTLY LATEST 2) */}
         {/* ========================================================================= */}
         <div id="certificates">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4">
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-semibold tracking-widest uppercase mb-3">
                 <Award className="w-3.5 h-3.5" />
@@ -199,7 +199,7 @@ export default function FeaturedHighlights() {
           </div>
 
           {/* Symmetrical 2-Column Grid for the Latest 2 Certificates */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {latestCertificates.map((cert, idx) => (
               <motion.div
                 key={cert.id}
@@ -207,10 +207,10 @@ export default function FeaturedHighlights() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.15 }}
-                className="group p-6 sm:p-8 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl hover:border-emerald-400/30 hover:bg-white/[0.04] transition-all duration-500 flex flex-col justify-between"
+                className="group p-5 sm:p-8 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl hover:border-emerald-400/30 hover:bg-white/[0.04] transition-all duration-500 flex flex-col justify-between"
               >
                 <div>
-                  <div className="relative w-full h-52 sm:h-64 rounded-2xl overflow-hidden mb-6 border border-white/10 bg-black/40">
+                  <div className="relative w-full h-48 sm:h-64 rounded-2xl overflow-hidden mb-5 sm:mb-6 border border-white/10 bg-black/40">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={cert.imageUrl}

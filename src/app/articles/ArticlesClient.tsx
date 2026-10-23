@@ -35,12 +35,12 @@ export default function ArticlesClient() {
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-purple-600/5 blur-[150px] rounded-full pointer-events-none mix-blend-screen" />
       <div className="absolute bottom-[20%] right-[-10%] w-[40%] h-[40%] bg-cyan-600/5 blur-[150px] rounded-full pointer-events-none mix-blend-screen" />
 
-      <div className="max-w-7xl mx-auto relative z-10 w-full mb-16 pt-16 md:pt-24 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto relative z-10 w-full mb-10 sm:mb-16 pt-8 sm:pt-16 md:pt-24 px-4 sm:px-6 lg:px-8">
         
         {/* Navigation Breadcrumb */}
         <Link 
           href="/" 
-          className="inline-flex items-center text-neutral-400 hover:text-white transition-all mb-10 sm:mb-12 group bg-white/5 border border-white/10 px-4 py-2 rounded-full backdrop-blur-md w-fit"
+          className="inline-flex items-center text-neutral-400 hover:text-white transition-all mb-6 sm:mb-10 group bg-white/5 border border-white/10 px-4 py-2 rounded-full backdrop-blur-md w-fit"
         >
           <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
           <span className="text-xs sm:text-sm font-medium">Back to Home</span>
@@ -51,7 +51,7 @@ export default function ArticlesClient() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-12 sm:mb-16"
+          className="mb-8 sm:mb-16"
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="p-3 bg-white/10 rounded-2xl border border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.08)]">
@@ -137,7 +137,7 @@ export default function ArticlesClient() {
                   </div>
 
                   {/* Content Section */}
-                  <div className="p-6 sm:p-7 flex flex-col flex-grow relative z-20">
+                  <div className="p-5 sm:p-7 flex flex-col flex-grow relative z-20">
                     <div className="flex flex-wrap items-center gap-2 text-xs text-neutral-400 mb-3 font-mono">
                       <span className="bg-white/5 border border-white/10 px-2 py-0.5 rounded-md text-[11px]">
                         {article.date}

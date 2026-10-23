@@ -152,84 +152,95 @@ export default function Header() {
         </div>
       </motion.header>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer Menu & Backdrop */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-x-0 top-18 z-40 p-4 lg:hidden pointer-events-auto"
-          >
-            <div className="rounded-3xl border border-white/10 bg-[#121212]/95 backdrop-blur-2xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
-              <nav className="flex flex-col gap-2 mb-6">
-                {navLinks.map((link) => {
-                  const Icon = link.icon;
-                  const isAnchor = link.href.startsWith("/#");
-                  const isActive = isAnchor
-                    ? false
-                    : link.href === "/"
-                    ? pathname === "/"
-                    : pathname.startsWith(link.href);
+          <>
+            {/* Backdrop click-away overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden pointer-events-auto"
+            />
 
-                  return (
-                    <Link
-                      key={link.name}
-                      href={link.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className={`flex items-center justify-between p-3 rounded-xl transition-all ${
-                        isActive
-                          ? "bg-white/10 text-white border border-white/15"
-                          : "text-neutral-300 hover:text-white hover:bg-white/[0.05]"
-                      }`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className={`p-2 rounded-lg border ${
-                          isActive ? "bg-white/10 border-white/20 text-white" : "bg-white/5 border-white/10 text-neutral-400"
-                        }`}>
-                          <Icon className="w-4 h-4" />
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.25 }}
+              className="fixed inset-x-0 top-16 sm:top-20 z-50 p-4 lg:hidden pointer-events-auto max-h-[calc(100dvh-4.5rem)] overflow-y-auto"
+            >
+              <div className="rounded-3xl border border-white/10 bg-[#121212]/95 backdrop-blur-2xl p-5 sm:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
+                <nav className="flex flex-col gap-1.5 sm:gap-2 mb-5 sm:mb-6">
+                  {navLinks.map((link) => {
+                    const Icon = link.icon;
+                    const isAnchor = link.href.startsWith("/#");
+                    const isActive = isAnchor
+                      ? false
+                      : link.href === "/"
+                      ? pathname === "/"
+                      : pathname.startsWith(link.href);
+
+                    return (
+                      <Link
+                        key={link.name}
+                        href={link.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={`flex items-center justify-between p-2.5 sm:p-3 rounded-xl transition-all ${
+                          isActive
+                            ? "bg-white/10 text-white border border-white/15"
+                            : "text-neutral-300 hover:text-white hover:bg-white/[0.05]"
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className={`p-2 rounded-lg border ${
+                            isActive ? "bg-white/10 border-white/20 text-white" : "bg-white/5 border-white/10 text-neutral-400"
+                          }`}>
+                            <Icon className="w-4 h-4" />
+                          </div>
+                          <span className="text-sm font-medium">{link.name}</span>
                         </div>
-                        <span className="text-sm font-medium">{link.name}</span>
-                      </div>
-                      <ArrowUpRight className="w-4 h-4 text-neutral-500" />
-                    </Link>
-                  );
-                })}
-              </nav>
+                        <ArrowUpRight className="w-4 h-4 text-neutral-500" />
+                      </Link>
+                    );
+                  })}
+                </nav>
 
-              <div className="pt-4 border-t border-white/10 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <a
-                    href="https://github.com/ThinukaVinjaya"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-neutral-300 hover:text-white"
-                    aria-label="GitHub"
+                <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <a
+                      href="https://github.com/ThinukaVinjaya"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-neutral-300 hover:text-white"
+                      aria-label="GitHub"
+                    >
+                      <FaGithub className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/thinukavinjayawickramanayaka/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-neutral-300 hover:text-white"
+                      aria-label="LinkedIn"
+                    >
+                      <FaLinkedin className="w-4 h-4" />
+                    </a>
+                  </div>
+
+                  <Link
+                    href="/#contact"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="px-5 py-2.5 rounded-full text-xs font-semibold text-black bg-white hover:bg-neutral-200 transition-colors"
                   >
-                    <FaGithub className="w-4 h-4" />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/thinukavinjayawickramanayaka/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-neutral-300 hover:text-white"
-                    aria-label="LinkedIn"
-                  >
-                    <FaLinkedin className="w-4 h-4" />
-                  </a>
+                    Contact Me
+                  </Link>
                 </div>
-
-                <Link
-                  href="/#contact"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="px-5 py-2.5 rounded-full text-xs font-semibold text-black bg-white hover:bg-neutral-200 transition-colors"
-                >
-                  Contact Me
-                </Link>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>

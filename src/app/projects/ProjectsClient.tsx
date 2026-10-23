@@ -24,12 +24,12 @@ export default function ProjectsClient() {
       <div className="absolute top-10 right-1/4 w-[500px] h-[500px] bg-cyan-500/[0.03] blur-[150px] rounded-full pointer-events-none mix-blend-screen" />
       <div className="absolute bottom-10 left-10 w-[500px] h-[500px] bg-amber-500/[0.02] blur-[150px] rounded-full pointer-events-none mix-blend-screen" />
 
-      <div className="max-w-7xl mx-auto relative z-10 w-full mb-16 pt-16 md:pt-24 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto relative z-10 w-full mb-10 sm:mb-16 pt-8 sm:pt-16 md:pt-24 px-4 sm:px-6 lg:px-8">
         
         {/* Navigation Breadcrumb */}
         <Link 
           href="/" 
-          className="inline-flex items-center text-neutral-400 hover:text-white transition-all mb-10 sm:mb-12 group bg-white/5 px-4 py-2 rounded-full border border-white/10 hover:border-white/20 backdrop-blur-md w-fit"
+          className="inline-flex items-center text-neutral-400 hover:text-white transition-all mb-6 sm:mb-10 group bg-white/5 px-4 py-2 rounded-full border border-white/10 hover:border-white/20 backdrop-blur-md w-fit"
         >
           <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
           <span className="text-xs sm:text-sm font-medium">Back to Home</span>
@@ -40,7 +40,7 @@ export default function ProjectsClient() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-14 sm:mb-16"
+          className="mb-10 sm:mb-16"
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="p-3 bg-white/10 rounded-2xl border border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.08)]">
@@ -91,7 +91,7 @@ export default function ProjectsClient() {
                 className="group relative flex flex-col rounded-3xl sm:rounded-[2.5rem] border border-white/10 bg-white/[0.02] backdrop-blur-xl overflow-hidden hover:border-white/25 hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)] transition-all duration-500 hover:-translate-y-1.5"
               >
                 {/* Media Container */}
-                <div className="relative w-full h-64 sm:h-80 overflow-hidden bg-black/50 border-b border-white/10">
+                <div className="relative w-full h-52 sm:h-64 md:h-80 overflow-hidden bg-black/50 border-b border-white/10">
                   <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent z-10 opacity-70 group-hover:opacity-30 transition-opacity duration-500" />
                   
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -121,7 +121,7 @@ export default function ProjectsClient() {
                 </div>
 
                 {/* Card Content */}
-                <div className="p-6 sm:p-8 flex flex-col flex-grow">
+                <div className="p-5 sm:p-8 flex flex-col flex-grow">
                   <Link href={`/projects/${project.id}`}>
                     <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
                       {project.title}

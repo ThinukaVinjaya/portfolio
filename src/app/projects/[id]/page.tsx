@@ -127,7 +127,7 @@ export default async function ProjectDetailPage({
   const hasLiveDemo = Boolean(project.liveDemoUrl && project.liveDemoUrl.trim().length > 0);
 
   return (
-    <main className="w-full bg-[#121212] min-h-screen relative pb-28 pt-24 sm:pt-28 font-sans">
+    <main className="w-full bg-[#121212] min-h-screen relative pb-16 sm:pb-28 pt-16 sm:pt-24 md:pt-28 font-sans">
       {/* Background radial glow */}
       <div className="absolute top-20 left-1/4 w-[500px] h-[400px] bg-cyan-500/[0.03] blur-[150px] rounded-full pointer-events-none" />
       <div className="absolute top-1/2 right-10 w-[500px] h-[400px] bg-amber-500/[0.02] blur-[150px] rounded-full pointer-events-none" />
@@ -154,8 +154,8 @@ export default async function ProjectDetailPage({
         </div>
 
         {/* Hero Media Showcase Card */}
-        <div className="relative w-full rounded-3xl sm:rounded-[2.5rem] overflow-hidden border border-white/10 bg-black/60 shadow-[0_20px_60px_rgba(0,0,0,0.7)] mb-12">
-          <div className="relative w-full h-[320px] sm:h-[450px] md:h-[520px]">
+        <div className="relative w-full rounded-2xl sm:rounded-3xl md:rounded-[2.5rem] overflow-hidden border border-white/10 bg-black/60 shadow-[0_20px_60px_rgba(0,0,0,0.7)] mb-8 sm:mb-12">
+          <div className="relative w-full h-[220px] sm:h-[380px] md:h-[500px]">
             {/* Ambient inner gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-black/30 z-10" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -229,11 +229,11 @@ export default async function ProjectDetailPage({
         </div>
 
         {/* Two-Column Details Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 sm:gap-12 mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-10 md:gap-12 mb-12 sm:mb-20">
           
           {/* Main Case Narrative (2 Columns) */}
-          <div className="lg:col-span-2 space-y-8">
-            <div className="p-8 sm:p-10 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl">
+          <div className="lg:col-span-2 space-y-6 sm:space-y-8">
+            <div className="p-5 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl">
               <div className="flex items-center gap-2.5 text-cyan-400 font-mono text-xs uppercase tracking-widest mb-4">
                 <FolderDot className="w-4 h-4" />
                 <span>System Architecture & Overview</span>
@@ -249,7 +249,7 @@ export default async function ProjectDetailPage({
             </div>
 
             {/* Engineering Highlights */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl">
+            <div className="p-5 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl">
               <div className="flex items-center gap-2.5 text-amber-400 font-mono text-xs uppercase tracking-widest mb-4">
                 <Code2 className="w-4 h-4" />
                 <span>Core Implementation Highlights</span>
@@ -283,8 +283,8 @@ export default async function ProjectDetailPage({
           </div>
 
           {/* Technical Specs Sidebar (1 Column) */}
-          <div className="space-y-8">
-            <div className="p-6 sm:p-8 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl sticky top-28">
+          <div className="space-y-6 sm:space-y-8">
+            <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl sticky top-28">
               <div className="flex items-center gap-2 text-cyan-300 font-mono text-xs uppercase tracking-widest mb-6">
                 <Layers className="w-4 h-4" />
                 <span>Tech Stack Ecosystem</span>
@@ -325,7 +325,7 @@ export default async function ProjectDetailPage({
         </div>
 
         {/* Previous / Next Project Navigation Bar */}
-        <div className="pt-10 border-t border-white/10 mb-20 flex flex-col sm:flex-row justify-between items-stretch gap-4">
+        <div className="pt-8 sm:pt-10 border-t border-white/10 mb-12 sm:mb-20 flex flex-col sm:flex-row justify-between items-stretch gap-4">
           {prevProject ? (
             <Link
               href={`/projects/${prevProject.id}`}

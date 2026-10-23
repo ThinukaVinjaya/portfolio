@@ -10,10 +10,10 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full relative z-10 bg-[#0a0a0a] border-t border-white/[0.08] pt-16 pb-12 text-neutral-400">
+    <footer className="w-full relative z-10 bg-[#0a0a0a] border-t border-white/[0.08] pt-10 sm:pt-16 pb-8 sm:pb-12 text-neutral-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/[0.08]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10 pb-8 sm:pb-12 border-b border-white/[0.08]">
           
           {/* Brand Info (5 cols) */}
           <div className="md:col-span-5 space-y-4">

@@ -26,7 +26,7 @@ export default function ScrollIndicator() {
   return (
     <motion.div
       style={{ opacity }}
-      className={`fixed bottom-12 right-6 md:right-12 z-50 flex flex-col items-center gap-4 pointer-events-none transition-opacity duration-300 ${isVisible ? '' : 'hidden'}`}
+      className={`fixed bottom-12 right-6 md:right-12 z-50 hidden md:flex flex-col items-center gap-4 pointer-events-none transition-opacity duration-300 ${isVisible ? '' : 'hidden'}`}
     >
       <motion.span 
         initial={{ opacity: 0, y: -20 }}

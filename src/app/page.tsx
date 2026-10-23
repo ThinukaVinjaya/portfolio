@@ -21,7 +21,7 @@ export default function Home() {
         <ScrollyCanvas sequencePaths={["/sequance1", "/sequance2"]} OverlayComponent={Overlay} />
       </div>
 
-      <div id="about" className="-mt-16" />
+      <div id="about" className="scroll-mt-24" />
 
       {/* Interactive Tech Matrix & Architecture Pillars */}
       <SkillsSection />
@@ -33,12 +33,12 @@ export default function Home() {
       <FeaturedHighlights />
 
       {/* Discovery Hub */}
-      <section className="w-full py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-[#121212] to-[#0a0a0a]">
-        <div className="max-w-7xl mx-auto relative z-10 text-center mb-16">
+      <section className="w-full py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-[#121212] to-[#0a0a0a]">
+        <div className="max-w-7xl mx-auto relative z-10 text-center mb-8 sm:mb-12 md:mb-16">
           <span className="text-xs font-mono uppercase tracking-[0.3em] text-cyan-400 mb-2 block">
             Navigation Hub
           </span>
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-3 sm:mb-4">
             Discover More Dimensions
           </h2>
           <div className="w-16 h-px bg-white/20 mx-auto" />
