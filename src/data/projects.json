@@ -80,7 +80,7 @@
     "techStack": ["MERN Stack", "React.js", "Node.js", "Express.js", "MongoDB", "JWT authentication", "Axios", "REST API integration"],
     "githubUrlbackend": "https://github.com/ThinukaVinjaya/exam_system_backend.git",
     "githubUrlfrontend": "https://github.com/ThinukaVinjaya/exam_system_frontend.git",
-    "liveDemoUrl": "https://www.deshanpathinayakeexam.com/login",
+    "liveDemoUrl": "",
     "year": "2026"
   }
 ]
